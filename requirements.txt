@@ -1,0 +1,10 @@
+# DeepEggy 后端依赖
+#
+# 基础功能（静态前端 + /api/trace + /api/analyze + /api/scan-barcode）
+# 只用 Python 标准库，零第三方依赖，Python 3.10+ 即可运行。
+#
+# OCR 模块的依赖不在这里：等 app/backend/ocr.py 接入后，
+# 按 OCR 负责人提供的 requirements-ocr.txt 单独安装。
+#
+# 可选（仅当需要本地跑 OCR 时）：
+# rapidocr-onnxruntime

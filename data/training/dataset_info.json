@@ -1,0 +1,38 @@
+{
+  "warning": "全部为模板生成的合成银标，真实包装照片数为 0；指标不能表述为真实商品识别准确率。",
+  "seed": 20261121,
+  "fields": [
+    "producer",
+    "address",
+    "std_no",
+    "sc_code"
+  ],
+  "counts": {
+    "train": 1600,
+    "dev": 400,
+    "test": 600
+  },
+  "slices": {
+    "train": {
+      "unseen_entity": 1024,
+      "ocr_noise": 576
+    },
+    "dev": {
+      "unseen_entity": 202,
+      "ocr_noise": 128,
+      "unseen_layout": 70
+    },
+    "test": {
+      "ocr_noise": 170,
+      "unseen_layout": 136,
+      "unseen_entity": 294
+    }
+  },
+  "entity_value_overlap": {
+    "train_dev": 0,
+    "train_test": 0,
+    "dev_test": 0
+  },
+  "real_photo_count": 0,
+  "used_for_trace_evidence": false
+}

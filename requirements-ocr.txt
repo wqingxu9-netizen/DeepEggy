@@ -1,0 +1,3 @@
+# Install the GPU inference engine first using setup_paddleocr.ps1.
+# This extra installs the PaddleOCR-VL document parsing pipeline.
+paddleocr[doc-parser]==3.7.0

@@ -1,0 +1,19 @@
+{
+  "source": "data\\ingredient_glossary\\original\\配料通俗化解释.xlsx",
+  "source_sha256": "1e5794b1a8d4c925500f900d9f25b6853e081ec6871a41610c4c491cf8ebc63e",
+  "rows": 143,
+  "entity_types": {
+    "additive": 86,
+    "allergen": 7,
+    "ingredient": 43,
+    "nutrition": 5,
+    "processing_related": 2
+  },
+  "lookup_surfaces": 192,
+  "lookup_aliases": 49,
+  "rows_with_text_or_category_corrections": 35,
+  "rows_with_excluded_aliases": 10,
+  "cautions_withheld": 143,
+  "blank_chemical_information": 143,
+  "blank_evidence": 143
+}

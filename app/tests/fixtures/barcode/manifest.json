@@ -1,0 +1,74 @@
+[
+  {
+    "name": "EAN13",
+    "width": 432,
+    "height": 210,
+    "expected": "6901010117440"
+  },
+  {
+    "name": "EAN8",
+    "width": 364,
+    "height": 210,
+    "expected": "96385074"
+  },
+  {
+    "name": "UPCA",
+    "width": 410,
+    "height": 210,
+    "expected": "036000291452"
+  },
+  {
+    "name": "I2of5",
+    "width": 477,
+    "height": 210,
+    "expected": "12345678901231"
+  },
+  {
+    "name": "ITF_plain",
+    "width": 769,
+    "height": 280,
+    "expected": "12345678901231"
+  },
+  {
+    "name": "ITF_hi",
+    "width": 880,
+    "height": 280,
+    "expected": "12345678901231"
+  },
+  {
+    "name": "ITF_bearer",
+    "width": 769,
+    "height": 280,
+    "expected": "12345678901231"
+  },
+  {
+    "name": "rotated",
+    "width": 210,
+    "height": 432,
+    "expected": "6901010117440"
+  },
+  {
+    "name": "dim",
+    "width": 432,
+    "height": 210,
+    "expected": "6901010117440"
+  },
+  {
+    "name": "blank",
+    "width": 500,
+    "height": 300,
+    "expected": ""
+  },
+  {
+    "name": "ITF_bad",
+    "width": 314,
+    "height": 154,
+    "expected": ""
+  },
+  {
+    "name": "QR",
+    "width": 373,
+    "height": 373,
+    "expected": ""
+  }
+]

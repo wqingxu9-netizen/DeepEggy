@@ -1,0 +1,1008 @@
+{
+  "warning": "新随机种子的合成银标确认集，仍非真实包装准确率",
+  "seed": 20261898,
+  "test": {
+    "documents": 600,
+    "document_exact_rate": 0.9883,
+    "micro": {
+      "tp": 2259,
+      "predicted": 2271,
+      "gold": 2266,
+      "precision": 0.9947,
+      "recall": 0.9969,
+      "f1": 0.9958
+    },
+    "by_field": {
+      "producer": {
+        "tp": 600,
+        "predicted": 602,
+        "gold": 600,
+        "precision": 0.9967,
+        "recall": 1.0,
+        "f1": 0.9983
+      },
+      "address": {
+        "tp": 547,
+        "predicted": 555,
+        "gold": 553,
+        "precision": 0.9856,
+        "recall": 0.9892,
+        "f1": 0.9874
+      },
+      "std_no": {
+        "tp": 553,
+        "predicted": 554,
+        "gold": 554,
+        "precision": 0.9982,
+        "recall": 0.9982,
+        "f1": 0.9982
+      },
+      "sc_code": {
+        "tp": 559,
+        "predicted": 560,
+        "gold": 559,
+        "precision": 0.9982,
+        "recall": 1.0,
+        "f1": 0.9991
+      }
+    },
+    "failures": [
+      {
+        "id": "synthetic-test-000047",
+        "slice": "unseen_layout",
+        "text": "产品名称：青岑示例食品\n净含量：500毫升\n食品生产许可证号=SC73098435031915；生产企业=运城市南屿食品有限公司；厂址=吉林省长春市九台区工业园区249号；产品标准号=GB/T 8963；\n配料表：水、白砂糖、柠檬酸、食用香精\n营养成分：每100克能量387千焦",
+        "gold": [
+          {
+            "field": "sc_code",
+            "start": 31,
+            "end": 47,
+            "value": "SC73098435031915"
+          },
+          {
+            "field": "producer",
+            "start": 53,
+            "end": 64,
+            "value": "运城市南屿食品有限公司"
+          },
+          {
+            "field": "address",
+            "start": 68,
+            "end": 85,
+            "value": "吉林省长春市九台区工业园区249号"
+          },
+          {
+            "field": "std_no",
+            "start": 92,
+            "end": 101,
+            "value": "GB/T 8963"
+          }
+        ],
+        "predicted": [
+          {
+            "field": "sc_code",
+            "start": 31,
+            "end": 47,
+            "value": "SC73098435031915"
+          },
+          {
+            "field": "producer",
+            "start": 53,
+            "end": 64,
+            "value": "运城市南屿食品有限公司"
+          },
+          {
+            "field": "address",
+            "start": 68,
+            "end": 85,
+            "value": "吉林省长春市九台区工业园区249号"
+          },
+          {
+            "field": "std_no",
+            "start": 92,
+            "end": 100,
+            "value": "GB/T 896"
+          },
+          {
+            "field": "sc_code",
+            "start": 100,
+            "end": 101,
+            "value": "3"
+          }
+        ]
+      },
+      {
+        "id": "synthetic-test-000177",
+        "slice": "ocr_noise",
+        "text": "产品名称：木禾示例食品\n净含量：500毫升\n生产许可证编号 SC31209990202297\n生产商 朔原调味品（长春市）股份有限公司\n生产地址 贵州省遵义市播州区工业园区 211号\n执行标准 GB9202 - 2010\n\n配料表：水、果葡糖浆、浓缩苹果汁、维生素C\n营养成分：每100克能量467千焦",
+        "gold": [
+          {
+            "field": "sc_code",
+            "start": 30,
+            "end": 46,
+            "value": "SC31209990202297"
+          },
+          {
+            "field": "producer",
+            "start": 51,
+            "end": 67,
+            "value": "朔原调味品（长春市）股份有限公司"
+          },
+          {
+            "field": "address",
+            "start": 73,
+            "end": 91,
+            "value": "贵州省遵义市播州区工业园区 211号"
+          },
+          {
+            "field": "std_no",
+            "start": 97,
+            "end": 110,
+            "value": "GB9202 - 2010"
+          }
+        ],
+        "predicted": [
+          {
+            "field": "sc_code",
+            "start": 30,
+            "end": 46,
+            "value": "SC31209990202297"
+          },
+          {
+            "field": "producer",
+            "start": 51,
+            "end": 67,
+            "value": "朔原调味品（长春市）股份有限公司"
+          },
+          {
+            "field": "address",
+            "start": 73,
+            "end": 86,
+            "value": "贵州省遵义市播州区工业园区"
+          },
+          {
+            "field": "address",
+            "start": 90,
+            "end": 91,
+            "value": "号"
+          },
+          {
+            "field": "std_no",
+            "start": 97,
+            "end": 110,
+            "value": "GB9202 - 2010"
+          }
+        ]
+      },
+      {
+        "id": "synthetic-test-000245",
+        "slice": "ocr_noise",
+        "text": "产品名称：田笙示例食品\n净含量：500毫升\n地址：重庆市重庆市江津区 食品产业园\n制造商：云牧调味品（重庆市）股份有限公司\n生产许可证编号：SC 70492862200378\n\n配料表：水、白砂糖、柠檬酸、食用香精\n营养成分：每100克能量304千焦",
+        "gold": [
+          {
+            "field": "address",
+            "start": 25,
+            "end": 40,
+            "value": "重庆市重庆市江津区 食品产业园"
+          },
+          {
+            "field": "producer",
+            "start": 45,
+            "end": 61,
+            "value": "云牧调味品（重庆市）股份有限公司"
+          },
+          {
+            "field": "sc_code",
+            "start": 70,
+            "end": 87,
+            "value": "SC 70492862200378"
+          }
+        ],
+        "predicted": [
+          {
+            "field": "address",
+            "start": 25,
+            "end": 34,
+            "value": "重庆市重庆市江津区"
+          },
+          {
+            "field": "address",
+            "start": 36,
+            "end": 40,
+            "value": "品产业园"
+          },
+          {
+            "field": "producer",
+            "start": 45,
+            "end": 61,
+            "value": "云牧调味品（重庆市）股份有限公司"
+          },
+          {
+            "field": "sc_code",
+            "start": 70,
+            "end": 87,
+            "value": "SC 70492862200378"
+          }
+        ]
+      },
+      {
+        "id": "synthetic-test-000253",
+        "slice": "ocr_noise",
+        "text": "产品名称：青岑示例食品\n净含量：500毫升\n生产地址贵州省遵义市播州区高新技术产业开发区 | 【生产商】清嵘（重庆）食品饮料有限公司 | 【食品生产许可证号】SC79367399676708 | \n配料表：水、白砂糖、柠檬酸、食用香精\n营养成分：每100克能量405千焦",
+        "gold": [
+          {
+            "field": "address",
+            "start": 26,
+            "end": 44,
+            "value": "贵州省遵义市播州区高新技术产业开发区"
+          },
+          {
+            "field": "producer",
+            "start": 52,
+            "end": 66,
+            "value": "清嵘（重庆）食品饮料有限公司"
+          },
+          {
+            "field": "sc_code",
+            "start": 79,
+            "end": 95,
+            "value": "SC79367399676708"
+          }
+        ],
+        "predicted": [
+          {
+            "field": "address",
+            "start": 27,
+            "end": 44,
+            "value": "州省遵义市播州区高新技术产业开发区"
+          },
+          {
+            "field": "producer",
+            "start": 52,
+            "end": 66,
+            "value": "清嵘（重庆）食品饮料有限公司"
+          },
+          {
+            "field": "sc_code",
+            "start": 79,
+            "end": 95,
+            "value": "SC79367399676708"
+          }
+        ]
+      },
+      {
+        "id": "synthetic-test-000419",
+        "slice": "ocr_noise",
+        "text": "产品名称：云牧示例食品\n净含量：500毫升\n【生产许可证编号】SC08370921389575 | 【生产商】田笙食品（遵义市）股份有限公司 | 【产品标准号】GB9845-2017 | 【厂址】重庆市重庆市江津区振兴大道181号 | \n配料表：水、果葡糖浆、浓缩苹果汁、维生素C\n营养成分：每100克能量153千焦",
+        "gold": [
+          {
+            "field": "sc_code",
+            "start": 31,
+            "end": 47,
+            "value": "SC08370921389575"
+          },
+          {
+            "field": "producer",
+            "start": 55,
+            "end": 70,
+            "value": "田笙食品（遵义市）股份有限公司"
+          },
+          {
+            "field": "std_no",
+            "start": 80,
+            "end": 91,
+            "value": "GB9845-2017"
+          },
+          {
+            "field": "address",
+            "start": 98,
+            "end": 115,
+            "value": "重庆市重庆市江津区振兴大道181号"
+          }
+        ],
+        "predicted": [
+          {
+            "field": "sc_code",
+            "start": 31,
+            "end": 47,
+            "value": "SC08370921389575"
+          },
+          {
+            "field": "producer",
+            "start": 55,
+            "end": 70,
+            "value": "田笙食品（遵义市）股份有限公司"
+          },
+          {
+            "field": "std_no",
+            "start": 80,
+            "end": 91,
+            "value": "GB9845-2017"
+          },
+          {
+            "field": "producer",
+            "start": 98,
+            "end": 99,
+            "value": "重"
+          },
+          {
+            "field": "address",
+            "start": 99,
+            "end": 115,
+            "value": "庆市重庆市江津区振兴大道181号"
+          }
+        ]
+      },
+      {
+        "id": "synthetic-test-000455",
+        "slice": "ocr_noise",
+        "text": "产品名称：朔原示例食品\n净含量：500毫升\n【执行标准】GB 8915-2009 | 生产地址吉林省长春市九台区工业园区279号 | 生产许可证编号SC 11590137713040 | 【生产商】清嵘（重庆）调味品有限公司 | \n配料表：水、白砂糖、柠檬酸、食用香精\n营养成分：每100克能量295千焦",
+        "gold": [
+          {
+            "field": "std_no",
+            "start": 28,
+            "end": 40,
+            "value": "GB 8915-2009"
+          },
+          {
+            "field": "address",
+            "start": 47,
+            "end": 64,
+            "value": "吉林省长春市九台区工业园区279号"
+          },
+          {
+            "field": "sc_code",
+            "start": 74,
+            "end": 91,
+            "value": "SC 11590137713040"
+          },
+          {
+            "field": "producer",
+            "start": 99,
+            "end": 112,
+            "value": "清嵘（重庆）调味品有限公司"
+          }
+        ],
+        "predicted": [
+          {
+            "field": "std_no",
+            "start": 28,
+            "end": 40,
+            "value": "GB 8915-2009"
+          },
+          {
+            "field": "address",
+            "start": 48,
+            "end": 64,
+            "value": "林省长春市九台区工业园区279号"
+          },
+          {
+            "field": "sc_code",
+            "start": 74,
+            "end": 91,
+            "value": "SC 11590137713040"
+          },
+          {
+            "field": "producer",
+            "start": 99,
+            "end": 112,
+            "value": "清嵘（重庆）调味品有限公司"
+          }
+        ]
+      },
+      {
+        "id": "synthetic-test-000561",
+        "slice": "unseen_entity",
+        "text": "产品名称：云牧示例食品\n净含量：500毫升\n【受委托生产商】木禾食品饮料（兰州市）股份有限公司 | 【食品生产许可证号】SC99278138554020 | 【产品标准号】GB9133-2007 | 【厂址】重庆市重庆市江津区创业路57号 | \n配料表：小麦粉、饮用水、食用盐、酵母\n营养成分：每100克能量269千焦",
+        "gold": [
+          {
+            "field": "producer",
+            "start": 30,
+            "end": 47,
+            "value": "木禾食品饮料（兰州市）股份有限公司"
+          },
+          {
+            "field": "sc_code",
+            "start": 60,
+            "end": 76,
+            "value": "SC99278138554020"
+          },
+          {
+            "field": "std_no",
+            "start": 86,
+            "end": 97,
+            "value": "GB9133-2007"
+          },
+          {
+            "field": "address",
+            "start": 104,
+            "end": 119,
+            "value": "重庆市重庆市江津区创业路57号"
+          }
+        ],
+        "predicted": [
+          {
+            "field": "producer",
+            "start": 30,
+            "end": 47,
+            "value": "木禾食品饮料（兰州市）股份有限公司"
+          },
+          {
+            "field": "sc_code",
+            "start": 60,
+            "end": 76,
+            "value": "SC99278138554020"
+          },
+          {
+            "field": "std_no",
+            "start": 86,
+            "end": 97,
+            "value": "GB9133-2007"
+          },
+          {
+            "field": "producer",
+            "start": 104,
+            "end": 105,
+            "value": "重"
+          },
+          {
+            "field": "address",
+            "start": 105,
+            "end": 119,
+            "value": "庆市重庆市江津区创业路57号"
+          }
+        ]
+      }
+    ]
+  },
+  "by_slice": {
+    "ocr_noise": {
+      "documents": 182,
+      "document_exact_rate": 0.9725,
+      "micro": {
+        "tp": 684,
+        "predicted": 692,
+        "gold": 689,
+        "precision": 0.9884,
+        "recall": 0.9927,
+        "f1": 0.9906
+      },
+      "by_field": {
+        "producer": {
+          "tp": 182,
+          "predicted": 183,
+          "gold": 182,
+          "precision": 0.9945,
+          "recall": 1.0,
+          "f1": 0.9973
+        },
+        "address": {
+          "tp": 165,
+          "predicted": 172,
+          "gold": 170,
+          "precision": 0.9593,
+          "recall": 0.9706,
+          "f1": 0.9649
+        },
+        "std_no": {
+          "tp": 166,
+          "predicted": 166,
+          "gold": 166,
+          "precision": 1.0,
+          "recall": 1.0,
+          "f1": 1.0
+        },
+        "sc_code": {
+          "tp": 171,
+          "predicted": 171,
+          "gold": 171,
+          "precision": 1.0,
+          "recall": 1.0,
+          "f1": 1.0
+        }
+      },
+      "failures": [
+        {
+          "id": "synthetic-test-000177",
+          "slice": "ocr_noise",
+          "text": "产品名称：木禾示例食品\n净含量：500毫升\n生产许可证编号 SC31209990202297\n生产商 朔原调味品（长春市）股份有限公司\n生产地址 贵州省遵义市播州区工业园区 211号\n执行标准 GB9202 - 2010\n\n配料表：水、果葡糖浆、浓缩苹果汁、维生素C\n营养成分：每100克能量467千焦",
+          "gold": [
+            {
+              "field": "sc_code",
+              "start": 30,
+              "end": 46,
+              "value": "SC31209990202297"
+            },
+            {
+              "field": "producer",
+              "start": 51,
+              "end": 67,
+              "value": "朔原调味品（长春市）股份有限公司"
+            },
+            {
+              "field": "address",
+              "start": 73,
+              "end": 91,
+              "value": "贵州省遵义市播州区工业园区 211号"
+            },
+            {
+              "field": "std_no",
+              "start": 97,
+              "end": 110,
+              "value": "GB9202 - 2010"
+            }
+          ],
+          "predicted": [
+            {
+              "field": "sc_code",
+              "start": 30,
+              "end": 46,
+              "value": "SC31209990202297"
+            },
+            {
+              "field": "producer",
+              "start": 51,
+              "end": 67,
+              "value": "朔原调味品（长春市）股份有限公司"
+            },
+            {
+              "field": "address",
+              "start": 73,
+              "end": 86,
+              "value": "贵州省遵义市播州区工业园区"
+            },
+            {
+              "field": "address",
+              "start": 90,
+              "end": 91,
+              "value": "号"
+            },
+            {
+              "field": "std_no",
+              "start": 97,
+              "end": 110,
+              "value": "GB9202 - 2010"
+            }
+          ]
+        },
+        {
+          "id": "synthetic-test-000245",
+          "slice": "ocr_noise",
+          "text": "产品名称：田笙示例食品\n净含量：500毫升\n地址：重庆市重庆市江津区 食品产业园\n制造商：云牧调味品（重庆市）股份有限公司\n生产许可证编号：SC 70492862200378\n\n配料表：水、白砂糖、柠檬酸、食用香精\n营养成分：每100克能量304千焦",
+          "gold": [
+            {
+              "field": "address",
+              "start": 25,
+              "end": 40,
+              "value": "重庆市重庆市江津区 食品产业园"
+            },
+            {
+              "field": "producer",
+              "start": 45,
+              "end": 61,
+              "value": "云牧调味品（重庆市）股份有限公司"
+            },
+            {
+              "field": "sc_code",
+              "start": 70,
+              "end": 87,
+              "value": "SC 70492862200378"
+            }
+          ],
+          "predicted": [
+            {
+              "field": "address",
+              "start": 25,
+              "end": 34,
+              "value": "重庆市重庆市江津区"
+            },
+            {
+              "field": "address",
+              "start": 36,
+              "end": 40,
+              "value": "品产业园"
+            },
+            {
+              "field": "producer",
+              "start": 45,
+              "end": 61,
+              "value": "云牧调味品（重庆市）股份有限公司"
+            },
+            {
+              "field": "sc_code",
+              "start": 70,
+              "end": 87,
+              "value": "SC 70492862200378"
+            }
+          ]
+        },
+        {
+          "id": "synthetic-test-000253",
+          "slice": "ocr_noise",
+          "text": "产品名称：青岑示例食品\n净含量：500毫升\n生产地址贵州省遵义市播州区高新技术产业开发区 | 【生产商】清嵘（重庆）食品饮料有限公司 | 【食品生产许可证号】SC79367399676708 | \n配料表：水、白砂糖、柠檬酸、食用香精\n营养成分：每100克能量405千焦",
+          "gold": [
+            {
+              "field": "address",
+              "start": 26,
+              "end": 44,
+              "value": "贵州省遵义市播州区高新技术产业开发区"
+            },
+            {
+              "field": "producer",
+              "start": 52,
+              "end": 66,
+              "value": "清嵘（重庆）食品饮料有限公司"
+            },
+            {
+              "field": "sc_code",
+              "start": 79,
+              "end": 95,
+              "value": "SC79367399676708"
+            }
+          ],
+          "predicted": [
+            {
+              "field": "address",
+              "start": 27,
+              "end": 44,
+              "value": "州省遵义市播州区高新技术产业开发区"
+            },
+            {
+              "field": "producer",
+              "start": 52,
+              "end": 66,
+              "value": "清嵘（重庆）食品饮料有限公司"
+            },
+            {
+              "field": "sc_code",
+              "start": 79,
+              "end": 95,
+              "value": "SC79367399676708"
+            }
+          ]
+        },
+        {
+          "id": "synthetic-test-000419",
+          "slice": "ocr_noise",
+          "text": "产品名称：云牧示例食品\n净含量：500毫升\n【生产许可证编号】SC08370921389575 | 【生产商】田笙食品（遵义市）股份有限公司 | 【产品标准号】GB9845-2017 | 【厂址】重庆市重庆市江津区振兴大道181号 | \n配料表：水、果葡糖浆、浓缩苹果汁、维生素C\n营养成分：每100克能量153千焦",
+          "gold": [
+            {
+              "field": "sc_code",
+              "start": 31,
+              "end": 47,
+              "value": "SC08370921389575"
+            },
+            {
+              "field": "producer",
+              "start": 55,
+              "end": 70,
+              "value": "田笙食品（遵义市）股份有限公司"
+            },
+            {
+              "field": "std_no",
+              "start": 80,
+              "end": 91,
+              "value": "GB9845-2017"
+            },
+            {
+              "field": "address",
+              "start": 98,
+              "end": 115,
+              "value": "重庆市重庆市江津区振兴大道181号"
+            }
+          ],
+          "predicted": [
+            {
+              "field": "sc_code",
+              "start": 31,
+              "end": 47,
+              "value": "SC08370921389575"
+            },
+            {
+              "field": "producer",
+              "start": 55,
+              "end": 70,
+              "value": "田笙食品（遵义市）股份有限公司"
+            },
+            {
+              "field": "std_no",
+              "start": 80,
+              "end": 91,
+              "value": "GB9845-2017"
+            },
+            {
+              "field": "producer",
+              "start": 98,
+              "end": 99,
+              "value": "重"
+            },
+            {
+              "field": "address",
+              "start": 99,
+              "end": 115,
+              "value": "庆市重庆市江津区振兴大道181号"
+            }
+          ]
+        },
+        {
+          "id": "synthetic-test-000455",
+          "slice": "ocr_noise",
+          "text": "产品名称：朔原示例食品\n净含量：500毫升\n【执行标准】GB 8915-2009 | 生产地址吉林省长春市九台区工业园区279号 | 生产许可证编号SC 11590137713040 | 【生产商】清嵘（重庆）调味品有限公司 | \n配料表：水、白砂糖、柠檬酸、食用香精\n营养成分：每100克能量295千焦",
+          "gold": [
+            {
+              "field": "std_no",
+              "start": 28,
+              "end": 40,
+              "value": "GB 8915-2009"
+            },
+            {
+              "field": "address",
+              "start": 47,
+              "end": 64,
+              "value": "吉林省长春市九台区工业园区279号"
+            },
+            {
+              "field": "sc_code",
+              "start": 74,
+              "end": 91,
+              "value": "SC 11590137713040"
+            },
+            {
+              "field": "producer",
+              "start": 99,
+              "end": 112,
+              "value": "清嵘（重庆）调味品有限公司"
+            }
+          ],
+          "predicted": [
+            {
+              "field": "std_no",
+              "start": 28,
+              "end": 40,
+              "value": "GB 8915-2009"
+            },
+            {
+              "field": "address",
+              "start": 48,
+              "end": 64,
+              "value": "林省长春市九台区工业园区279号"
+            },
+            {
+              "field": "sc_code",
+              "start": 74,
+              "end": 91,
+              "value": "SC 11590137713040"
+            },
+            {
+              "field": "producer",
+              "start": 99,
+              "end": 112,
+              "value": "清嵘（重庆）调味品有限公司"
+            }
+          ]
+        }
+      ]
+    },
+    "unseen_entity": {
+      "documents": 306,
+      "document_exact_rate": 0.9967,
+      "micro": {
+        "tp": 1152,
+        "predicted": 1154,
+        "gold": 1153,
+        "precision": 0.9983,
+        "recall": 0.9991,
+        "f1": 0.9987
+      },
+      "by_field": {
+        "producer": {
+          "tp": 306,
+          "predicted": 307,
+          "gold": 306,
+          "precision": 0.9967,
+          "recall": 1.0,
+          "f1": 0.9984
+        },
+        "address": {
+          "tp": 280,
+          "predicted": 281,
+          "gold": 281,
+          "precision": 0.9964,
+          "recall": 0.9964,
+          "f1": 0.9964
+        },
+        "std_no": {
+          "tp": 285,
+          "predicted": 285,
+          "gold": 285,
+          "precision": 1.0,
+          "recall": 1.0,
+          "f1": 1.0
+        },
+        "sc_code": {
+          "tp": 281,
+          "predicted": 281,
+          "gold": 281,
+          "precision": 1.0,
+          "recall": 1.0,
+          "f1": 1.0
+        }
+      },
+      "failures": [
+        {
+          "id": "synthetic-test-000561",
+          "slice": "unseen_entity",
+          "text": "产品名称：云牧示例食品\n净含量：500毫升\n【受委托生产商】木禾食品饮料（兰州市）股份有限公司 | 【食品生产许可证号】SC99278138554020 | 【产品标准号】GB9133-2007 | 【厂址】重庆市重庆市江津区创业路57号 | \n配料表：小麦粉、饮用水、食用盐、酵母\n营养成分：每100克能量269千焦",
+          "gold": [
+            {
+              "field": "producer",
+              "start": 30,
+              "end": 47,
+              "value": "木禾食品饮料（兰州市）股份有限公司"
+            },
+            {
+              "field": "sc_code",
+              "start": 60,
+              "end": 76,
+              "value": "SC99278138554020"
+            },
+            {
+              "field": "std_no",
+              "start": 86,
+              "end": 97,
+              "value": "GB9133-2007"
+            },
+            {
+              "field": "address",
+              "start": 104,
+              "end": 119,
+              "value": "重庆市重庆市江津区创业路57号"
+            }
+          ],
+          "predicted": [
+            {
+              "field": "producer",
+              "start": 30,
+              "end": 47,
+              "value": "木禾食品饮料（兰州市）股份有限公司"
+            },
+            {
+              "field": "sc_code",
+              "start": 60,
+              "end": 76,
+              "value": "SC99278138554020"
+            },
+            {
+              "field": "std_no",
+              "start": 86,
+              "end": 97,
+              "value": "GB9133-2007"
+            },
+            {
+              "field": "producer",
+              "start": 104,
+              "end": 105,
+              "value": "重"
+            },
+            {
+              "field": "address",
+              "start": 105,
+              "end": 119,
+              "value": "庆市重庆市江津区创业路57号"
+            }
+          ]
+        }
+      ]
+    },
+    "unseen_layout": {
+      "documents": 112,
+      "document_exact_rate": 0.9911,
+      "micro": {
+        "tp": 423,
+        "predicted": 425,
+        "gold": 424,
+        "precision": 0.9953,
+        "recall": 0.9976,
+        "f1": 0.9965
+      },
+      "by_field": {
+        "producer": {
+          "tp": 112,
+          "predicted": 112,
+          "gold": 112,
+          "precision": 1.0,
+          "recall": 1.0,
+          "f1": 1.0
+        },
+        "address": {
+          "tp": 102,
+          "predicted": 102,
+          "gold": 102,
+          "precision": 1.0,
+          "recall": 1.0,
+          "f1": 1.0
+        },
+        "std_no": {
+          "tp": 102,
+          "predicted": 103,
+          "gold": 103,
+          "precision": 0.9903,
+          "recall": 0.9903,
+          "f1": 0.9903
+        },
+        "sc_code": {
+          "tp": 107,
+          "predicted": 108,
+          "gold": 107,
+          "precision": 0.9907,
+          "recall": 1.0,
+          "f1": 0.9953
+        }
+      },
+      "failures": [
+        {
+          "id": "synthetic-test-000047",
+          "slice": "unseen_layout",
+          "text": "产品名称：青岑示例食品\n净含量：500毫升\n食品生产许可证号=SC73098435031915；生产企业=运城市南屿食品有限公司；厂址=吉林省长春市九台区工业园区249号；产品标准号=GB/T 8963；\n配料表：水、白砂糖、柠檬酸、食用香精\n营养成分：每100克能量387千焦",
+          "gold": [
+            {
+              "field": "sc_code",
+              "start": 31,
+              "end": 47,
+              "value": "SC73098435031915"
+            },
+            {
+              "field": "producer",
+              "start": 53,
+              "end": 64,
+              "value": "运城市南屿食品有限公司"
+            },
+            {
+              "field": "address",
+              "start": 68,
+              "end": 85,
+              "value": "吉林省长春市九台区工业园区249号"
+            },
+            {
+              "field": "std_no",
+              "start": 92,
+              "end": 101,
+              "value": "GB/T 8963"
+            }
+          ],
+          "predicted": [
+            {
+              "field": "sc_code",
+              "start": 31,
+              "end": 47,
+              "value": "SC73098435031915"
+            },
+            {
+              "field": "producer",
+              "start": 53,
+              "end": 64,
+              "value": "运城市南屿食品有限公司"
+            },
+            {
+              "field": "address",
+              "start": 68,
+              "end": 85,
+              "value": "吉林省长春市九台区工业园区249号"
+            },
+            {
+              "field": "std_no",
+              "start": 92,
+              "end": 100,
+              "value": "GB/T 896"
+            },
+            {
+              "field": "sc_code",
+              "start": 100,
+              "end": 101,
+              "value": "3"
+            }
+          ]
+        }
+      ]
+    }
+  }
+}

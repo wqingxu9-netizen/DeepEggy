@@ -1,0 +1,54 @@
+:root {
+  color-scheme: light;
+  --space-3xs: 2px; --space-2xs: 4px; --space-xs: 8px; --space-sm: 12px; --space-md: 16px; --space-lg: 24px; --space-xl: 40px; --space-2xl: 64px; --space-3xl: 96px; --space-4xl: 144px;
+  --text-xs: 0.75rem; --text-sm: 0.875rem; --text-md: 1rem; --text-lg: 1.2rem; --text-xl: 1.44rem; --text-2xl: 1.728rem; --text-3xl: 2.074rem;
+  --text-display-s: 1.44rem; --text-display: 1.728rem; --text-section: 1.2rem; --text-title: 1rem; --text-lead: 1rem;
+  --ease-out: cubic-bezier(0.16, 1, 0.3, 1); --ease-in: cubic-bezier(0.7, 0, 0.84, 0); --ease-in-out: cubic-bezier(0.65, 0, 0.35, 1);
+  --dur-micro: 120ms; --dur-short: 220ms; --dur-long: 420ms;
+  --color-error: oklch(52% 0.19 27); --color-success: oklch(50% 0.12 150);
+  --container: 1440px; --gutter: 64px; --gap-columns: 32px; --section-gap-s: 120px; --section-gap: 144px; --section-gap-l: 176px;
+  --z-base: 1; --z-raised: 10; --z-dropdown: 100; --z-sticky: 200; --z-sticky-nav: 300; --z-modal: 400; --z-toast: 500; --z-tooltip: 600;
+  --color-paper: oklch(94% 0.03 80); --color-paper-2: oklch(97% 0.02 85); --color-paper-3: oklch(89% 0.05 80);
+  --color-ink: oklch(27% 0.05 50); --color-ink-2: oklch(36% 0.05 50); --color-muted: oklch(48% 0.06 55);
+  --color-rule: oklch(84% 0.06 78);
+  --color-accent: oklch(54% 0.20 24); --color-accent-ink: oklch(97% 0.02 85); --color-focus: oklch(54% 0.20 24);
+  --color-gold: oklch(74% 0.14 75); --color-gold-2: oklch(84% 0.11 80); --color-slot: var(--color-gold);
+  --font-display: "Yeseva One", ui-serif, Georgia, serif; --font-body: "Archivo", ui-sans-serif, sans-serif;
+  --font-outlier: "Archivo Narrow", ui-sans-serif, sans-serif;
+  --radius-card: 0; --radius-pill: 999px; --rule-hair: 1px; --rule-bar: 2px;
+  --shadow-card: 10px 10px 0 var(--color-paper-3);
+  --tracking-display: -0.005em; --display-weight: 400;
+}
+
+/* App-level extension of Solstice (same theme, three more roles this product needs).
+   Faces: 中文界面不能加载 CJK webfont，display/body/outlier 先写主题原字，再落到系统中文字体（font slot）。 */
+:root {
+  --font-display: "Yeseva One", ui-serif, Georgia, "Songti SC", "Source Han Serif SC", "Noto Serif CJK SC", "SimSun", serif;
+  --font-body: "Archivo", ui-sans-serif, system-ui, "PingFang SC", "HarmonyOS Sans SC", "Microsoft YaHei", "Noto Sans CJK SC", sans-serif;
+  --font-outlier: "Archivo Narrow", ui-sans-serif, system-ui, "PingFang SC", "Microsoft YaHei", sans-serif;
+  --font-num: ui-serif, Georgia, "Songti SC", "SimSun", serif;
+
+  --color-well: oklch(97% 0.02 85);
+  --color-well-2: oklch(93% 0.035 82);
+
+  /* 状态只用墨、金、朱红三色：Solstice 不给第二个信号色相 */
+  --color-good: var(--color-ink-2);
+  --color-good-ink: var(--color-ink);
+  --color-good-well: var(--color-paper-2);
+  --color-warn: var(--color-gold);
+  --color-warn-ink: var(--color-ink);
+  --color-warn-well: var(--color-paper-3);
+  --color-bad: var(--color-accent);
+  --color-bad-ink: oklch(43% 0.19 24);
+  --color-bad-well: oklch(96% 0.028 30);
+
+  --color-stage: oklch(22% 0.03 55);
+  --color-guide: oklch(97% 0.02 85);
+
+  --shadow-well: 6px 6px 0 var(--color-paper-3);
+  --app-column: 26rem;
+  --z-topbar: var(--z-sticky-nav);
+  --z-actionbar: var(--z-sticky);
+  --z-sheet: var(--z-modal);
+  --z-toast: var(--z-toast);
+}

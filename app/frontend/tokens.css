@@ -1,0 +1,40 @@
+/* DeepEggy · 设计 v2「暖纸杂货铺」
+ * 方向：获奖级编辑排版（expressive typography + bold minimalism）
+ * 暖纸底 + 墨色文字 + 蛋黄单强调色；结论用彩色贴纸，操作有微交互反馈
+ * 旧版（深色 Console）完整备份于 backups/frontend-v1-dark/
+ */
+:root {
+  color-scheme: light;
+  --space-3xs: 2px; --space-2xs: 4px; --space-xs: 8px; --space-sm: 12px; --space-md: 16px; --space-lg: 24px; --space-xl: 40px; --space-2xl: 64px; --space-3xl: 96px; --space-4xl: 144px;
+  --text-xs: 0.75rem; --text-sm: 0.875rem; --text-md: 1rem; --text-lg: 1.2rem; --text-xl: 1.44rem; --text-2xl: 1.728rem; --text-3xl: 2.074rem;
+  --text-display-s: 1.6rem; --text-display: clamp(2.1rem, 4.6vw, 3.1rem); --text-section: 1.2rem; --text-title: 1rem; --text-lead: 1.05rem;
+  --ease-out: cubic-bezier(0.16, 1, 0.3, 1); --ease-in: cubic-bezier(0.7, 0, 0.84, 0); --ease-in-out: cubic-bezier(0.65, 0, 0.35, 1);
+  --dur-micro: 120ms; --dur-short: 220ms; --dur-long: 420ms;
+  --color-error: #C6462B; --color-success: #3E7C4F;
+  --container: 1200px; --gutter: 56px; --gap-columns: 32px; --section-gap-s: 120px; --section-gap: 144px; --section-gap-l: 176px;
+  --z-base: 1; --z-raised: 10; --z-dropdown: 100; --z-sticky: 200; --z-sticky-nav: 300; --z-modal: 400; --z-toast: 500; --z-tooltip: 600;
+  /* 暖纸三层 + 墨色文字 */
+  --color-paper: #F3EDE1; --color-paper-2: #FCF8EF; --color-paper-3: #E9E1CE;
+  --color-ink: #221D12; --color-ink-2: #4C4636; --color-muted: #6F654D;
+  --color-rule: #D2C5A6; --color-rule-2: #BCAE8E;
+  /* 蛋黄：只做底色与高亮，不直接当文字色（浅底上对比度不够） */
+  --color-accent: #F2B32C; --color-accent-ink: #2A2008; --color-accent-soft: #F8E7BF; --color-focus: #A86A00;
+  --color-cool: #3E6B8F; --color-cool-soft: #E2EAF1;
+  --color-ok: #356B45; --color-ok-soft: #E0EDDC; --color-bad: #B23B22; --color-bad-soft: #F7E1D6;
+  --color-caution: #8A5600;
+  --font-display: "Host Grotesk", "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei", ui-sans-serif, system-ui, sans-serif; --font-body: var(--font-display);
+  --font-outlier: "Atkinson Hyperlegible Mono", ui-monospace, "Cascadia Mono", Consolas, monospace;
+  --radius-card: 18px; --radius-pill: 12px;
+  --rule-hair: 1px; --rule-ink: 1.5px; --rule-heavy: 2px;
+  --ink-line: color-mix(in oklab, var(--color-ink) 90%, var(--color-paper));
+  --shadow-paper: 0 1px 1px rgba(34,29,18,.045), 0 12px 24px -20px rgba(34,29,18,.55);
+  --shadow-lift: 0 2px 2px rgba(34,29,18,.05), 0 10px 18px -12px rgba(34,29,18,.40);
+  --shadow-sticker: 3px 3px 0 var(--color-ink), 0 10px 16px -12px rgba(34,29,18,.65);
+  /* 材质：纸的三种表面处理（阶段 3 用） */
+  --paper-card: linear-gradient(180deg, #FFFDF7, var(--color-paper-2) 42%, color-mix(in oklab, var(--color-paper-2) 94%, var(--color-paper-3)));
+  --paper-raise: inset 0 1px 0 rgba(255,255,255,.80), inset 0 -1px 0 rgba(34,29,18,.055);
+  --paper-emboss: inset 0 1px 0 rgba(255,255,255,.85), inset 0 -2px 0 rgba(34,29,18,.07);
+  --paper-sink: inset 0 2px 3px rgba(34,29,18,.10), inset 0 -1px 0 rgba(255,255,255,.62);
+  --radius-card-a: 18px 18px 17px 19px;
+  --tracking-display: -0.01em; --display-weight: 600;
+}

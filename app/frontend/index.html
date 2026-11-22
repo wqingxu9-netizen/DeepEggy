@@ -1,0 +1,303 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="theme-color" content="#F3EDE1">
+<meta name="description" content="拍照识别食品标签，读懂配料与营养，了解相关宣称与计算依据，帮助你在购买前做选择。">
+<title>看得懂的配料表</title>
+<link rel="stylesheet" href="style.css">
+<link rel="stylesheet" href="refinements.css">
+<link rel="stylesheet" href="ingredient-tree.css">
+</head>
+<body>
+
+<header class="topbar">
+  <div class="topbar-in">
+    <div class="topbar-lead">
+      <button class="back-btn" id="btnBack" type="button" hidden aria-label="返回上一屏">
+        <svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M14.5 4.5 7 12l7.5 7.5"/></svg>
+        <span class="back-tx">返回</span>
+      </button>
+      <div class="brand">
+        <span class="brand-mark">Deep<em>Eggy</em></span>
+        <span class="brand-sub">购买之前，帮你把配料与营养读明白</span>
+      </div>
+    </div>
+    <button class="ghost-btn" id="prefBtn" type="button">我的情况<span class="cnt" id="prefDot" hidden></span></button>
+  </div>
+</header>
+
+<main class="app">
+
+  <!-- ============ 首页 ============ -->
+  <section class="view" id="viewHome">
+    <div class="home-grid">
+      <div class="home-lede">
+        <div class="lede">
+          <h1>看不懂配料表？<br>拍一下，<em class="hl">三十秒讲明白</em></h1>
+          <p><span>逐项大白话解释</span><span>按包装标注换算每瓶／每份含量</span><span>「0 蔗糖」不等于「无糖」，对照配料与营养标签看</span></p>
+        </div>
+
+        <div class="entries">
+          <button class="entry primary" id="btnBarcode" type="button">
+            <span class="entry-ico" aria-hidden="true">
+              <svg viewBox="0 0 24 24"><path d="M3 6v12M6 6v12M9 6v8M12 6v12M15 6v8M18 6v12M21 6v12"/></svg>
+            </span>
+            <span class="entry-tx">
+              <span class="entry-t">扫条形码</span>
+              <span class="entry-d">条码清晰时扫码更快；识别失败可改拍配料表</span>
+            </span>
+          </button>
+          <button class="entry" id="btnLabel" type="button">
+            <span class="entry-ico" aria-hidden="true">
+              <svg viewBox="0 0 24 24"><path d="M4 8h4l1.5-2h5L16 8h4v10H4z"/><circle cx="12" cy="13" r="3"/></svg>
+            </span>
+            <span class="entry-tx">
+              <span class="entry-t">拍配料表</span>
+              <span class="entry-d">没条码、或想逐项看的时候</span>
+            </span>
+          </button>
+          <button class="entry" id="btnWechat" type="button">
+            <span class="entry-ico" aria-hidden="true">
+              <svg viewBox="0 0 24 24"><path d="M4 4h6v6H4zM14 4h6v6h-6zM4 14h6v6H4zM14 14h6v6h-6z"/></svg>
+            </span>
+            <span class="entry-tx">
+              <span class="entry-t">微信扫了码？</span>
+              <span class="entry-d">尝试查询公开商品信息，未查到可拍照识别</span>
+            </span>
+          </button>
+        </div>
+      </div>
+
+      <div class="home-side">
+        <div class="demo">
+          <div class="demo-h demo-h-examples"><span>没有实物？点一个示例走完流程</span><span class="demo-note">演示数据，非该品牌实测</span></div>
+          <div class="demo-list" id="demoList"></div>
+        </div>
+        <div class="history" id="historyBox" hidden>
+          <div class="demo-h">最近扫过</div>
+          <div class="demo-list" id="historyList"></div>
+        </div>
+        <div class="demo idx-box">
+          <div class="demo-h">商品索引 <span id="idxTotal"></span><button class="hn-link" id="btnHotness" type="button">热度依据</button></div>
+          <div class="chips" id="idxChips"></div>
+          <div class="chips hot-words" id="idxHotWords" hidden></div>
+          <div class="demo-list idx-list" id="idxList"></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ 取景 / 识别 ============ -->
+  <section class="view" id="viewScan" hidden>
+    <div class="page-head">
+      <div class="eyebrow"><span></span> 扫码查询</div>
+      <h1>扫描商品条码</h1>
+      <p>将条码放进取景框，也可以上传照片或手动输入。</p>
+    </div>
+    <div class="scan-grid">
+      <div class="scanmode" id="scanMode">
+        <div class="stage">
+          <video id="cam" playsinline muted></video>
+          <div class="camera-badge" id="cameraBadge">准备开启相机</div>
+          <div class="guide guide-bar" aria-hidden="true"><i></i><i></i><i></i><i></i><span></span></div>
+          <canvas id="probe" width="480" height="360" hidden aria-hidden="true"></canvas>
+        </div>
+        <div class="lightbar">
+          <span>环境亮度</span>
+          <span class="meter"><i id="lightFill"></i></span>
+          <span class="light-state" id="lightTxt">检测中</span>
+        </div>
+        <p class="notice" id="lightNotice" hidden>
+          光线偏暗，条码容易识别失败。<b>打开灯或换个位置</b>，也可以用下面的手动方式。
+        </p>
+        <p class="scantip" id="scanTip" role="status" aria-live="polite">把条码放入框内，保持画面清晰</p>
+        <div class="scanbtns">
+          <button class="btn primary" id="btnShoot" type="button" disabled>识别当前画面</button>
+          <button class="btn flat" id="btnRestartCamera" type="button" hidden>开启相机</button>
+          <button class="btn flat" id="btnTorch" type="button" hidden aria-pressed="false">打开闪光灯</button>
+          <button class="btn flat" id="btnCamOff" type="button">关闭相机</button>
+        </div>
+      </div>
+
+      <div class="fallback">
+        <div class="fallback-icon" aria-hidden="true">✳</div>
+        <div class="fallback-h">换一种方式查找</div>
+        <p class="fallback-intro">无法对准？上传照片，或输入包装上的数字。</p>
+        <button class="btn photo-btn wide" id="btnBarcodePhoto" type="button">上传条码照片</button>
+        <input class="visually-hidden" type="file" id="barcodeImageInput" accept="image/*" tabindex="-1">
+        <div class="fallback-separator"><span>或手动输入</span></div>
+        <div class="row">
+          <label class="visually-hidden" for="codeInput">条形码</label>
+          <input class="in mono" id="codeInput" name="barcode" inputmode="numeric" autocomplete="off"
+                 placeholder="输入 8–14 位条码" maxlength="20" aria-describedby="barcodeHelp barcodeFeedback">
+          <button class="btn flat" id="btnCode" type="button">查询</button>
+        </div>
+        <p class="barcode-help" id="barcodeHelp">支持常见商品条码；可保留开头的 0。</p>
+        <p class="barcode-feedback" id="barcodeFeedback" role="status" aria-live="polite" hidden></p>
+        <div class="fallback-separator"><span>想直接查看配料？</span></div>
+        <label class="btn primary wide" for="cameraInput">拍配料表</label>
+        <input type="file" id="cameraInput" name="cameraLabel" accept="image/*" capture="environment"
+               style="position:absolute;width:1px;height:1px;opacity:0;overflow:hidden;pointer-events:none">
+        <label class="btn flat wide" for="imgInput">从相册上传配料表照片</label>
+        <input type="file" id="imgInput" name="label" accept="image/*"
+               style="position:absolute;width:1px;height:1px;opacity:0;overflow:hidden;pointer-events:none">
+        <p class="fallback-p">条码照片在本机识别；配料表照片按现有方式交给识别服务。</p>
+      </div>
+    </div>
+  </section>
+
+
+  <!-- ============ 结果 ============ -->
+  <section class="view" id="viewResult" hidden>
+    <article class="result">
+      <aside class="r-side">
+        <div class="rc-top">
+          <div class="rc-brand" id="rBrand"></div>
+          <h2 class="rc-name" id="rName"></h2>
+          <div class="rc-spec" id="rSpec"></div>
+          <div class="rc-code mono" id="rCode"></div>
+          <div class="rc-from" id="rFrom" hidden></div>
+        </div>
+
+        <div class="stamp" id="rStamp"><span id="rStampTxt"></span></div>
+        <p class="verdict-why" id="rWhy"></p>
+
+        <div class="keys" id="rKeys"></div>
+
+        <div class="actionbar" id="actionbar" hidden>
+          <button class="btn primary" id="btnShare" type="button">生成分享卡片</button>
+          <button class="btn flat" id="btnNext" type="button">再扫一个</button>
+        </div>
+
+        <div class="rc-foot">
+          <span>解读由 AI 生成，依据食品安全国标 GB 2760 等公开条款，仅供购买参考，不构成医疗建议。</span>
+        </div>
+      </aside>
+
+      <div class="r-main">
+        <nav class="tabs" id="tabs" role="tablist" aria-label="结果分页">
+          <button class="tab on" type="button" role="tab" data-tab="ing" id="tab-ing" aria-controls="pIng" aria-selected="true">成分释义</button>
+          <button class="tab" type="button" role="tab" data-tab="nut" id="tab-nut" aria-controls="pNut" aria-selected="false" tabindex="-1">营养</button>
+          <button class="tab" type="button" role="tab" data-tab="pair" id="tab-pair" aria-controls="pPair" aria-selected="false" tabindex="-1">搭配</button>
+          <button class="tab" type="button" role="tab" data-tab="buzz" id="tab-buzz" aria-controls="pBuzz" aria-selected="false" tabindex="-1">口碑</button>
+          <button class="tab" type="button" role="tab" data-tab="trace" id="tab-trace" aria-controls="pTrace" aria-selected="false" tabindex="-1">溯源</button>
+          <button class="tab" type="button" role="tab" data-tab="trick" id="tab-trick" aria-controls="pTrick" aria-selected="false" tabindex="-1">话术</button>
+          <button class="tab" type="button" role="tab" data-tab="you" id="tab-you" aria-controls="pYou" aria-selected="false" tabindex="-1">为你<span class="cnt" id="youDot" hidden></span></button>
+        </nav>
+
+        <div class="panel on" data-panel="ing" id="pIng" role="tabpanel" aria-labelledby="tab-ing"></div>
+        <div class="panel" data-panel="nut" id="pNut" role="tabpanel" aria-labelledby="tab-nut"></div>
+        <div class="panel" data-panel="pair" id="pPair" role="tabpanel" aria-labelledby="tab-pair"></div>
+        <div class="panel" data-panel="buzz" id="pBuzz" role="tabpanel" aria-labelledby="tab-buzz"></div>
+        <div class="panel" data-panel="trace" id="pTrace" role="tabpanel" aria-labelledby="tab-trace"></div>
+        <div class="panel" data-panel="trick" id="pTrick" role="tabpanel" aria-labelledby="tab-trick"></div>
+        <div class="panel" data-panel="you" id="pYou" role="tabpanel" aria-labelledby="tab-you"></div>
+      </div>
+    </article>
+  </section>
+
+</main>
+
+<!-- ============ 我的情况抽屉 ============ -->
+<div class="sheet" id="prefSheet" hidden role="dialog" aria-modal="true" aria-label="我的情况">
+  <div class="sheet-card">
+    <div class="sheet-h"><h3>我的情况</h3><button class="x" type="button" data-close aria-label="关闭">×</button></div>
+    <p class="sheet-p">勾上之后，结果里的「为你」会只挑跟你有关的说。选一次，后面都记得。</p>
+    <div class="chips" id="prefChips"></div>
+    <p class="sheet-p small">过敏原（国标 14 类核心致敏物质 + 其他常见致敏食物，勾选后「为你」单独提醒）</p>
+    <input type="search" id="allergySearch" class="allergy-search" placeholder="搜你过敏的食物，如：花生、芒果、虾、牛奶…" autocomplete="off" aria-label="搜索过敏原">
+    <div class="chips" id="allergySearchResult" hidden></div>
+    <div class="chips" id="allergyChips"></div>
+    <button class="more-toggle" id="allergyMore" type="button" aria-expanded="false">查看全部致敏食物</button>
+    <div class="chips" id="allergyChips2" hidden></div>
+    <button class="btn primary wide" type="button" data-close>好了</button>
+  </div>
+</div>
+
+<!-- ============ 微信扫码页 → 按商品名查配料表 ============ -->
+<div class="sheet" id="wechatSheet" hidden role="dialog" aria-modal="true" aria-label="用微信扫码页查配料表">
+  <div class="sheet-card">
+    <div class="sheet-h"><h3>用微信扫码页查配料表</h3><button class="x" type="button" data-close aria-label="关闭">×</button></div>
+    <p class="sheet-p">在微信里扫一下条码，页面会显示商品名称、规格、品牌和企业信息，就是没有配料解读。<br><b>把这一页截图传上来</b>，我们认出商品名，再去联网找它的配料表；也可以直接手输名字。</p>
+    <label class="btn flat wide" for="wxShotInput">📷 上传微信扫码页截图</label>
+    <input type="file" id="wxShotInput" accept="image/*"
+           style="position:absolute;width:1px;height:1px;opacity:0;overflow:hidden;pointer-events:none">
+    <input class="in" id="wxName" placeholder="商品名称（微信扫码页上那个）" autocomplete="off">
+    <input class="in" id="wxBrand" placeholder="品牌（可选），如：统一" autocomplete="off">
+    <button class="btn primary wide" id="btnWxQuery" type="button">联网查配料表</button>
+  </div>
+</div>
+
+<!-- ============ 热度依据（为什么说它热门） ============ -->
+<div class="sheet" id="hotnessSheet" hidden role="dialog" aria-modal="true" aria-label="热度依据">
+  <div class="sheet-card">
+    <div class="sheet-h"><h3>热度依据</h3><button class="x" type="button" data-close aria-label="关闭">×</button></div>
+    <p class="sheet-p" id="hnIntro">「热门」不是拍脑袋排的：把几条公开信号合起来打分，名次越靠前的搜索词分越高，每款都说得出凭什么。</p>
+    <div class="hn-srcs" id="hnSources"></div>
+    <div class="hn-list" id="hnTop"></div>
+    <p class="sheet-p small" id="hnMiss"></p>
+    <button class="btn primary wide" type="button" data-close>知道了</button>
+  </div>
+</div>
+
+<!-- ============ 评价详情（项目内查看原文） ============ -->
+<div class="sheet" id="quoteSheet" hidden role="dialog" aria-modal="true" aria-label="评价原文">
+  <div class="sheet-card wide-card">
+    <div class="sheet-h"><h3>评价原文</h3><button class="x" type="button" data-close aria-label="关闭">×</button></div>
+    <p class="sheet-p quote-full" id="quoteText"></p>
+    <p class="sheet-p small" id="quoteSrc"></p>
+    <div class="page-preview" id="pagePreview">
+      <div class="page-loading" id="pageLoading">正在抓取原文页面…</div>
+      <div class="page-title" id="pageTitle" hidden></div>
+      <div class="page-body" id="pageBody" hidden></div>
+      <div class="page-note" id="pageNote" hidden></div>
+    </div>
+    <button class="btn primary wide" type="button" data-close>知道了</button>
+  </div>
+</div>
+
+<!-- ============ 分享卡片 ============ -->
+<div class="sheet" id="shareSheet" hidden role="dialog" aria-modal="true" aria-label="分享卡片">
+  <div class="sheet-card wide-card">
+    <div class="sheet-h"><h3>分享卡片</h3><button class="x" type="button" data-close aria-label="关闭">×</button></div>
+    <canvas id="shareCanvas" width="1200" height="900" aria-label="分享卡片预览图"></canvas>
+    <div class="scanbtns">
+      <button class="btn primary" id="btnSaveCard" type="button">保存图片</button>
+      <button class="btn flat" type="button" data-close>关闭</button>
+    </div>
+  </div>
+</div>
+
+<div class="toast" id="toast" hidden role="status" aria-live="polite"></div>
+
+<div class="busy" id="busy" hidden role="dialog" aria-modal="true" aria-label="正在处理">
+  <div class="busy-box">
+    <div class="busy-spin" aria-hidden="true"></div>
+    <p id="busyTxt" role="status" aria-live="polite">处理中…</p>
+    <!-- 联网查太久时才浮出来：给一个明确的出口，别让人一直盯着转圈 -->
+    <div class="busy-esc" id="busyEsc" hidden>
+      <p class="busy-esc-t">联网查得有点久，可能网速慢，也可能这款商品的配料表不在公开页面上。可以先返回，也可以继续等。</p>
+      <div class="busy-esc-btns">
+        <button class="btn" id="btnBusyWait" type="button">继续等</button>
+        <button class="btn primary" id="btnBusyBack" type="button">返回</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<footer class="foot">
+  首届 AgriHackathon 参赛作品 · DeepEggy 团队<br>
+  配料通俗词条由团队人工整理、AI 复核；解读由国标知识库、AI 与联网检索共同支撑，不构成医疗建议。
+</footer>
+
+<script src="ingredient-glossary.js"></script>
+<script src="allergens.js"></script>
+<script src="vendor/zxing/index.min.js"></script>
+<script src="barcode-scanner.js"></script>
+<script src="ingredient-tree.js"></script>
+<script src="mock.js"></script>
+<script src="app.js"></script>
+</body>
+</html>

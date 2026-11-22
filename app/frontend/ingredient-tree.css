@@ -1,0 +1,93 @@
+/* 配料结构树 · 暖纸 v2 补充样式
+   只新增「分组 / 缩进 / 子配料 / 视图切换」这几块，
+   .ing 系列样式完全沿用 style.css（顺序列表视图继续用它），避免两套外观漂移。 */
+
+/* ---------- 视图切换条 ---------- */
+.ing-bar {
+  display: flex; align-items: center; gap: var(--space-md);
+  flex-wrap: wrap; margin-bottom: var(--space-md);
+}
+.ing-bar .sect-t { flex: 1 1 12rem; min-width: 8rem; margin-bottom: 0; }
+
+.ing-seg {
+  display: inline-flex; flex: none; overflow: hidden;
+  border: var(--rule-hair) solid var(--color-rule-2);
+  border-radius: 999px; background: var(--color-paper-2);
+}
+.ing-seg button {
+  appearance: none; border: 0; background: none; cursor: pointer;
+  padding: 6px 14px; font: inherit; font-size: var(--text-xs);
+  color: var(--color-muted); transition: background var(--dur-micro) var(--ease-out);
+}
+.ing-seg button + button { border-left: var(--rule-hair) solid var(--color-rule); }
+.ing-seg button.on { background: var(--color-ink); color: var(--color-paper-2); }
+.ing-seg button:focus-visible { outline: 2px solid var(--color-focus); outline-offset: -2px; }
+
+/* ---------- 分组 ---------- */
+.igrp + .igrp { margin-top: var(--space-lg); }
+
+.igrp-h {
+  display: grid; grid-template-columns: 10px minmax(0, auto) auto minmax(0, 1fr);
+  align-items: center; gap: var(--space-sm);
+  width: 100%; padding: var(--space-xs) 0;
+  background: none; border: 0; border-bottom: var(--rule-ink) solid var(--color-rule-2);
+  color: var(--color-ink); text-align: left; cursor: pointer;
+}
+.igrp-h .car {
+  width: 8px; height: 8px;
+  border-right: 1.5px solid var(--color-muted);
+  border-bottom: 1.5px solid var(--color-muted);
+  transform: rotate(45deg);
+  transition: transform var(--dur-short) var(--ease-out);
+}
+.igrp-h .car.open { transform: rotate(135deg); }
+.igrp-n { font-weight: 600; font-size: var(--text-md); letter-spacing: .02em; }
+.igrp-c { font-size: var(--text-xs); color: var(--color-muted); }
+.igrp-why {
+  font-size: var(--text-xs); color: var(--color-muted);
+  text-align: right; overflow-wrap: anywhere;
+}
+
+.igrp-b {
+  margin-left: 4px; padding-left: var(--space-md);
+  border-left: var(--rule-hair) solid var(--color-rule);
+}
+.igrp-b[hidden] { display: none; }
+.igrp-b > .ing:first-child { border-top: 0; }
+
+/* ---------- 原序序号 ---------- */
+.idx {
+  display: inline-block; min-width: 1.6em; margin-right: var(--space-xs);
+  padding: 0 4px; border: var(--rule-hair) solid var(--color-rule);
+  border-radius: 999px; background: var(--color-paper-2);
+  font-size: var(--text-xs); line-height: 1.7; text-align: center;
+  color: var(--color-muted); vertical-align: 1px;
+}
+
+/* ---------- 复合配料的括号展开 ---------- */
+.subs {
+  margin-top: var(--space-sm); padding: var(--space-sm) var(--space-md);
+  background: var(--color-paper);
+  border: var(--rule-hair) dashed var(--color-rule-2);
+  border-radius: var(--radius-pill);
+}
+.subs-t { font-size: var(--text-xs); color: var(--color-muted); letter-spacing: .04em; }
+.subs ul { list-style: none; margin: var(--space-xs) 0 0; padding: 0; }
+.subs li { padding: var(--space-2xs) 0; border-top: var(--rule-hair) solid var(--color-rule); }
+.subs li:first-child { border-top: 0; }
+.subs b { font-weight: 500; color: var(--color-ink); }
+.subs-n { margin-left: var(--space-xs); font-size: var(--text-xs); color: var(--color-muted); }
+.subs-d { display: block; font-size: var(--text-xs); line-height: 1.65; color: var(--color-ink-2); }
+.subs-d.muted { color: var(--color-muted); }
+
+/* ---------- 窄屏 ---------- */
+@media (max-width: 640px) {
+  .igrp-h { grid-template-columns: 10px minmax(0, 1fr) auto; }
+  .igrp-why { display: none; }
+  .ing-bar { gap: var(--space-xs); }
+  .ing-bar .sect-t { flex-basis: 100%; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .igrp-h .car { transition: none; }
+}

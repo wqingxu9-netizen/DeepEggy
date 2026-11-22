@@ -1,0 +1,512 @@
+{
+  "warning": "全部为模板生成的合成银标，真实包装照片数为 0；指标不能表述为真实商品识别准确率。",
+  "seed": 20261121,
+  "fields": [
+    "producer",
+    "address",
+    "std_no",
+    "sc_code"
+  ],
+  "counts": {
+    "train": 1600,
+    "dev": 400,
+    "test": 600
+  },
+  "slices": {
+    "train": {
+      "unseen_entity": 1024,
+      "ocr_noise": 576
+    },
+    "dev": {
+      "unseen_entity": 202,
+      "ocr_noise": 128,
+      "unseen_layout": 70
+    },
+    "test": {
+      "ocr_noise": 170,
+      "unseen_layout": 136,
+      "unseen_entity": 294
+    }
+  },
+  "entity_value_overlap": {
+    "train_dev": 0,
+    "train_test": 0,
+    "dev_test": 0
+  },
+  "real_photo_count": 0,
+  "used_for_trace_evidence": false,
+  "best_epoch": 2,
+  "epochs": 8,
+  "elapsed_seconds": 58.83,
+  "history": [
+    {
+      "epoch": 1,
+      "train_character_mistakes": 605,
+      "dev_micro_f1": 0.9964,
+      "dev_document_exact_rate": 0.99
+    },
+    {
+      "epoch": 2,
+      "train_character_mistakes": 51,
+      "dev_micro_f1": 0.999,
+      "dev_document_exact_rate": 0.9975
+    },
+    {
+      "epoch": 3,
+      "train_character_mistakes": 16,
+      "dev_micro_f1": 0.999,
+      "dev_document_exact_rate": 0.9975
+    },
+    {
+      "epoch": 4,
+      "train_character_mistakes": 0,
+      "dev_micro_f1": 0.999,
+      "dev_document_exact_rate": 0.9975
+    },
+    {
+      "epoch": 5,
+      "train_character_mistakes": 0,
+      "dev_micro_f1": 0.999,
+      "dev_document_exact_rate": 0.9975
+    },
+    {
+      "epoch": 6,
+      "train_character_mistakes": 0,
+      "dev_micro_f1": 0.999,
+      "dev_document_exact_rate": 0.9975
+    },
+    {
+      "epoch": 7,
+      "train_character_mistakes": 0,
+      "dev_micro_f1": 0.999,
+      "dev_document_exact_rate": 0.9975
+    },
+    {
+      "epoch": 8,
+      "train_character_mistakes": 0,
+      "dev_micro_f1": 0.999,
+      "dev_document_exact_rate": 0.9975
+    }
+  ],
+  "test": {
+    "documents": 600,
+    "document_exact_rate": 0.9967,
+    "micro": {
+      "tp": 2280,
+      "predicted": 2282,
+      "gold": 2282,
+      "precision": 0.9991,
+      "recall": 0.9991,
+      "f1": 0.9991
+    },
+    "by_field": {
+      "producer": {
+        "tp": 600,
+        "predicted": 600,
+        "gold": 600,
+        "precision": 1.0,
+        "recall": 1.0,
+        "f1": 1.0
+      },
+      "address": {
+        "tp": 561,
+        "predicted": 563,
+        "gold": 563,
+        "precision": 0.9964,
+        "recall": 0.9964,
+        "f1": 0.9964
+      },
+      "std_no": {
+        "tp": 567,
+        "predicted": 567,
+        "gold": 567,
+        "precision": 1.0,
+        "recall": 1.0,
+        "f1": 1.0
+      },
+      "sc_code": {
+        "tp": 552,
+        "predicted": 552,
+        "gold": 552,
+        "precision": 1.0,
+        "recall": 1.0,
+        "f1": 1.0
+      }
+    },
+    "failures": [
+      {
+        "id": "synthetic-test-000121",
+        "slice": "ocr_noise",
+        "text": "产品名称：清嵘示例食品\n净含量：500毫升\n【产品标准号】GB8295-2021 | 生产地址贵州省遵 义市播州区高新技术产业开发区 | 【生产许可证编号】SC62560109430163 | 【生产商】重庆市谷川饮品有 限公司 | \n配料表：小麦粉、饮用水、食用盐、酵母\n营养成分：每100克能量146千焦",
+        "gold": [
+          {
+            "field": "std_no",
+            "start": 29,
+            "end": 40,
+            "value": "GB8295-2021"
+          },
+          {
+            "field": "address",
+            "start": 47,
+            "end": 66,
+            "value": "贵州省遵 义市播州区高新技术产业开发区"
+          },
+          {
+            "field": "sc_code",
+            "start": 78,
+            "end": 94,
+            "value": "SC62560109430163"
+          },
+          {
+            "field": "producer",
+            "start": 102,
+            "end": 114,
+            "value": "重庆市谷川饮品有 限公司"
+          }
+        ],
+        "predicted": [
+          {
+            "field": "std_no",
+            "start": 29,
+            "end": 40,
+            "value": "GB8295-2021"
+          },
+          {
+            "field": "address",
+            "start": 48,
+            "end": 66,
+            "value": "州省遵 义市播州区高新技术产业开发区"
+          },
+          {
+            "field": "sc_code",
+            "start": 78,
+            "end": 94,
+            "value": "SC62560109430163"
+          },
+          {
+            "field": "producer",
+            "start": 102,
+            "end": 114,
+            "value": "重庆市谷川饮品有 限公司"
+          }
+        ]
+      },
+      {
+        "id": "synthetic-test-000324",
+        "slice": "ocr_noise",
+        "text": "产品名称：木禾示例食品\n净含量：500毫升\n【生产商】谷川（兰州）调味品有限公司 | 生产地址山西 省运城市盐湖区创业路 | 【执行标准】GB/ T 8918.3-2001 | 【生产许可证编号】SC35451852808256 | \n配料表：水、果葡糖浆、浓缩苹果汁、维生素C\n营养成分：每100克能量449千焦",
+        "gold": [
+          {
+            "field": "producer",
+            "start": 27,
+            "end": 40,
+            "value": "谷川（兰州）调味品有限公司"
+          },
+          {
+            "field": "address",
+            "start": 47,
+            "end": 60,
+            "value": "山西 省运城市盐湖区创业路"
+          },
+          {
+            "field": "std_no",
+            "start": 69,
+            "end": 86,
+            "value": "GB/ T 8918.3-2001"
+          },
+          {
+            "field": "sc_code",
+            "start": 98,
+            "end": 114,
+            "value": "SC35451852808256"
+          }
+        ],
+        "predicted": [
+          {
+            "field": "producer",
+            "start": 27,
+            "end": 40,
+            "value": "谷川（兰州）调味品有限公司"
+          },
+          {
+            "field": "address",
+            "start": 48,
+            "end": 60,
+            "value": "西 省运城市盐湖区创业路"
+          },
+          {
+            "field": "std_no",
+            "start": 69,
+            "end": 86,
+            "value": "GB/ T 8918.3-2001"
+          },
+          {
+            "field": "sc_code",
+            "start": 98,
+            "end": 114,
+            "value": "SC35451852808256"
+          }
+        ]
+      }
+    ]
+  },
+  "test_by_slice": {
+    "ocr_noise": {
+      "documents": 170,
+      "document_exact_rate": 0.9882,
+      "micro": {
+        "tp": 644,
+        "predicted": 646,
+        "gold": 646,
+        "precision": 0.9969,
+        "recall": 0.9969,
+        "f1": 0.9969
+      },
+      "by_field": {
+        "producer": {
+          "tp": 170,
+          "predicted": 170,
+          "gold": 170,
+          "precision": 1.0,
+          "recall": 1.0,
+          "f1": 1.0
+        },
+        "address": {
+          "tp": 156,
+          "predicted": 158,
+          "gold": 158,
+          "precision": 0.9873,
+          "recall": 0.9873,
+          "f1": 0.9873
+        },
+        "std_no": {
+          "tp": 159,
+          "predicted": 159,
+          "gold": 159,
+          "precision": 1.0,
+          "recall": 1.0,
+          "f1": 1.0
+        },
+        "sc_code": {
+          "tp": 159,
+          "predicted": 159,
+          "gold": 159,
+          "precision": 1.0,
+          "recall": 1.0,
+          "f1": 1.0
+        }
+      },
+      "failures": [
+        {
+          "id": "synthetic-test-000121",
+          "slice": "ocr_noise",
+          "text": "产品名称：清嵘示例食品\n净含量：500毫升\n【产品标准号】GB8295-2021 | 生产地址贵州省遵 义市播州区高新技术产业开发区 | 【生产许可证编号】SC62560109430163 | 【生产商】重庆市谷川饮品有 限公司 | \n配料表：小麦粉、饮用水、食用盐、酵母\n营养成分：每100克能量146千焦",
+          "gold": [
+            {
+              "field": "std_no",
+              "start": 29,
+              "end": 40,
+              "value": "GB8295-2021"
+            },
+            {
+              "field": "address",
+              "start": 47,
+              "end": 66,
+              "value": "贵州省遵 义市播州区高新技术产业开发区"
+            },
+            {
+              "field": "sc_code",
+              "start": 78,
+              "end": 94,
+              "value": "SC62560109430163"
+            },
+            {
+              "field": "producer",
+              "start": 102,
+              "end": 114,
+              "value": "重庆市谷川饮品有 限公司"
+            }
+          ],
+          "predicted": [
+            {
+              "field": "std_no",
+              "start": 29,
+              "end": 40,
+              "value": "GB8295-2021"
+            },
+            {
+              "field": "address",
+              "start": 48,
+              "end": 66,
+              "value": "州省遵 义市播州区高新技术产业开发区"
+            },
+            {
+              "field": "sc_code",
+              "start": 78,
+              "end": 94,
+              "value": "SC62560109430163"
+            },
+            {
+              "field": "producer",
+              "start": 102,
+              "end": 114,
+              "value": "重庆市谷川饮品有 限公司"
+            }
+          ]
+        },
+        {
+          "id": "synthetic-test-000324",
+          "slice": "ocr_noise",
+          "text": "产品名称：木禾示例食品\n净含量：500毫升\n【生产商】谷川（兰州）调味品有限公司 | 生产地址山西 省运城市盐湖区创业路 | 【执行标准】GB/ T 8918.3-2001 | 【生产许可证编号】SC35451852808256 | \n配料表：水、果葡糖浆、浓缩苹果汁、维生素C\n营养成分：每100克能量449千焦",
+          "gold": [
+            {
+              "field": "producer",
+              "start": 27,
+              "end": 40,
+              "value": "谷川（兰州）调味品有限公司"
+            },
+            {
+              "field": "address",
+              "start": 47,
+              "end": 60,
+              "value": "山西 省运城市盐湖区创业路"
+            },
+            {
+              "field": "std_no",
+              "start": 69,
+              "end": 86,
+              "value": "GB/ T 8918.3-2001"
+            },
+            {
+              "field": "sc_code",
+              "start": 98,
+              "end": 114,
+              "value": "SC35451852808256"
+            }
+          ],
+          "predicted": [
+            {
+              "field": "producer",
+              "start": 27,
+              "end": 40,
+              "value": "谷川（兰州）调味品有限公司"
+            },
+            {
+              "field": "address",
+              "start": 48,
+              "end": 60,
+              "value": "西 省运城市盐湖区创业路"
+            },
+            {
+              "field": "std_no",
+              "start": 69,
+              "end": 86,
+              "value": "GB/ T 8918.3-2001"
+            },
+            {
+              "field": "sc_code",
+              "start": 98,
+              "end": 114,
+              "value": "SC35451852808256"
+            }
+          ]
+        }
+      ]
+    },
+    "unseen_entity": {
+      "documents": 294,
+      "document_exact_rate": 1.0,
+      "micro": {
+        "tp": 1118,
+        "predicted": 1118,
+        "gold": 1118,
+        "precision": 1.0,
+        "recall": 1.0,
+        "f1": 1.0
+      },
+      "by_field": {
+        "producer": {
+          "tp": 294,
+          "predicted": 294,
+          "gold": 294,
+          "precision": 1.0,
+          "recall": 1.0,
+          "f1": 1.0
+        },
+        "address": {
+          "tp": 275,
+          "predicted": 275,
+          "gold": 275,
+          "precision": 1.0,
+          "recall": 1.0,
+          "f1": 1.0
+        },
+        "std_no": {
+          "tp": 278,
+          "predicted": 278,
+          "gold": 278,
+          "precision": 1.0,
+          "recall": 1.0,
+          "f1": 1.0
+        },
+        "sc_code": {
+          "tp": 271,
+          "predicted": 271,
+          "gold": 271,
+          "precision": 1.0,
+          "recall": 1.0,
+          "f1": 1.0
+        }
+      },
+      "failures": []
+    },
+    "unseen_layout": {
+      "documents": 136,
+      "document_exact_rate": 1.0,
+      "micro": {
+        "tp": 518,
+        "predicted": 518,
+        "gold": 518,
+        "precision": 1.0,
+        "recall": 1.0,
+        "f1": 1.0
+      },
+      "by_field": {
+        "producer": {
+          "tp": 136,
+          "predicted": 136,
+          "gold": 136,
+          "precision": 1.0,
+          "recall": 1.0,
+          "f1": 1.0
+        },
+        "address": {
+          "tp": 130,
+          "predicted": 130,
+          "gold": 130,
+          "precision": 1.0,
+          "recall": 1.0,
+          "f1": 1.0
+        },
+        "std_no": {
+          "tp": 130,
+          "predicted": 130,
+          "gold": 130,
+          "precision": 1.0,
+          "recall": 1.0,
+          "f1": 1.0
+        },
+        "sc_code": {
+          "tp": 122,
+          "predicted": 122,
+          "gold": 122,
+          "precision": 1.0,
+          "recall": 1.0,
+          "f1": 1.0
+        }
+      },
+      "failures": []
+    }
+  },
+  "model_bytes": 208624
+}

@@ -1,0 +1,261 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="theme-color" content="#F3EDE1">
+<meta name="description" content="拍一下超市商品，逐项讲清配料表里的每一项是什么、这一份吃进去多少、按国标该注意什么，并核对「0 蔗糖」这类宣称。">
+<title>看得懂的配料表</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<header class="topbar">
+  <div class="topbar-in">
+    <div class="topbar-lead">
+      <button class="back-btn" id="btnBack" type="button" hidden aria-label="返回上一屏">
+        <svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M14.5 4.5 7 12l7.5 7.5"/></svg>
+        <span class="back-tx">返回</span>
+      </button>
+      <div class="brand">
+        <span class="brand-mark">Deep<em>Eggy</em></span>
+        <span class="brand-sub">超市货架前，帮你把配料表读明白</span>
+      </div>
+    </div>
+    <button class="ghost-btn" id="prefBtn" type="button">我的情况<span class="cnt" id="prefDot" hidden></span></button>
+  </div>
+</header>
+
+<main class="app">
+
+  <!-- ============ 首页 ============ -->
+  <section class="view" id="viewHome">
+    <div class="home-grid">
+      <div class="home-lede">
+        <div class="lede">
+          <h1>看不懂配料表？<br>拍一下，<em class="hl">三十秒讲明白</em></h1>
+          <p><span>逐项大白话解释</span><span>这一份吃进去多少，按国标算</span><span>「0 蔗糖」当场核一遍</span></p>
+        </div>
+
+        <div class="entries">
+          <button class="entry primary" id="btnBarcode" type="button">
+            <span class="entry-ico" aria-hidden="true">
+              <svg viewBox="0 0 24 24"><path d="M3 6v12M6 6v12M9 6v8M12 6v12M15 6v8M18 6v12M21 6v12"/></svg>
+            </span>
+            <span class="entry-tx">
+              <span class="entry-t">扫条形码</span>
+              <span class="entry-d">最快，不怕手抖和反光</span>
+            </span>
+          </button>
+          <button class="entry" id="btnLabel" type="button">
+            <span class="entry-ico" aria-hidden="true">
+              <svg viewBox="0 0 24 24"><path d="M4 8h4l1.5-2h5L16 8h4v10H4z"/><circle cx="12" cy="13" r="3"/></svg>
+            </span>
+            <span class="entry-tx">
+              <span class="entry-t">拍配料表</span>
+              <span class="entry-d">没条码、或想逐项看的时候</span>
+            </span>
+          </button>
+          <button class="entry" id="btnWechat" type="button">
+            <span class="entry-ico" aria-hidden="true">
+              <svg viewBox="0 0 24 24"><circle cx="11" cy="11" r="6.5"/><path d="M15.8 15.8 21 21"/></svg>
+            </span>
+            <span class="entry-tx">
+              <span class="entry-t">搜商品名</span>
+              <span class="entry-d">没条码、拍不清，知道名字就能查</span>
+            </span>
+          </button>
+        </div>
+      </div>
+
+      <div class="home-side">
+        <div class="demo">
+          <div class="demo-h">没有实物？点一个示例走完流程</div>
+          <div class="demo-list" id="demoList"></div>
+        </div>
+        <div class="history" id="historyBox" hidden>
+          <div class="demo-h">最近扫过</div>
+          <div class="demo-list" id="historyList"></div>
+        </div>
+        <div class="demo idx-box">
+          <div class="demo-h">商品索引 <span id="idxTotal"></span></div>
+          <div class="chips" id="idxChips"></div>
+          <div class="chips hot-words" id="idxHotWords" hidden></div>
+          <div class="demo-list idx-list" id="idxList"></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ 取景 / 识别 ============ -->
+  <section class="view" id="viewScan" hidden>
+    <div class="scan-grid">
+      <div class="scanmode" id="scanMode">
+        <div class="stage">
+          <video id="cam" playsinline muted></video>
+          <div class="guide guide-bar" aria-hidden="true"></div>
+          <canvas id="probe" width="480" height="360" hidden aria-hidden="true"></canvas>
+        </div>
+        <div class="lightbar">
+          <span>环境亮度</span>
+          <span class="meter"><i id="lightFill"></i></span>
+          <span class="light-state" id="lightTxt">检测中</span>
+        </div>
+        <p class="notice" id="lightNotice" hidden>
+          光线偏暗，条码容易识别失败。<b>打开灯或换个位置</b>，也可以用下面的手动方式。
+        </p>
+        <p class="scantip" id="scanTip">把条形码对准框内，保持 15 到 25 厘米</p>
+        <div class="scanbtns">
+          <button class="btn primary" id="btnShoot" type="button">拍照识别</button>
+          <button class="btn flat" id="btnCamOff" type="button">关闭相机</button>
+        </div>
+      </div>
+
+      <div class="fallback">
+        <div class="fallback-h">识别不了？用手动</div>
+        <div class="row">
+          <label class="visually-hidden" for="codeInput">条形码</label>
+          <input class="in mono" id="codeInput" name="barcode" inputmode="numeric" autocomplete="off"
+                 placeholder="手输条形码，如 6902000100029" maxlength="14">
+          <button class="btn flat" id="btnCode" type="button">查</button>
+        </div>
+        <label class="btn primary wide" for="cameraInput">拍配料表</label>
+        <input type="file" id="cameraInput" name="cameraLabel" accept="image/*" capture="environment"
+               style="position:absolute;width:1px;height:1px;opacity:0;overflow:hidden;pointer-events:none">
+        <label class="btn flat wide" for="imgInput">从相册上传配料表照片</label>
+        <input type="file" id="imgInput" name="label" accept="image/*"
+               style="position:absolute;width:1px;height:1px;opacity:0;overflow:hidden;pointer-events:none">
+        <p class="fallback-p">拍照会调用后置相机；完成后自动提取配料区并直接解读。</p>
+      </div>
+    </div>
+  </section>
+
+
+  <!-- ============ 结果 ============ -->
+  <section class="view" id="viewResult" hidden>
+    <article class="result">
+      <aside class="r-side">
+        <div class="rc-top">
+          <div class="rc-brand" id="rBrand"></div>
+          <h2 class="rc-name" id="rName"></h2>
+          <div class="rc-spec" id="rSpec"></div>
+          <div class="rc-code mono" id="rCode"></div>
+        </div>
+
+        <div class="stamp" id="rStamp"><span id="rStampTxt"></span></div>
+        <p class="verdict-why" id="rWhy"></p>
+
+        <div class="keys" id="rKeys"></div>
+
+        <div class="actionbar" id="actionbar" hidden>
+          <button class="btn primary" id="btnShare" type="button">生成分享卡片</button>
+          <button class="btn flat" id="btnNext" type="button">再扫一个</button>
+        </div>
+
+        <div class="rc-foot">
+          <span>解读由 AI 生成，依据食品安全国标 GB 2760 等公开条款，仅供购买参考，不构成医疗建议。</span>
+        </div>
+      </aside>
+
+      <div class="r-main">
+        <nav class="tabs" id="tabs" role="tablist" aria-label="结果分页">
+          <button class="tab on" type="button" role="tab" data-tab="ing" id="tab-ing" aria-controls="pIng" aria-selected="true">成分释义</button>
+          <button class="tab" type="button" role="tab" data-tab="nut" id="tab-nut" aria-controls="pNut" aria-selected="false" tabindex="-1">营养</button>
+          <button class="tab" type="button" role="tab" data-tab="pair" id="tab-pair" aria-controls="pPair" aria-selected="false" tabindex="-1">搭配</button>
+          <button class="tab" type="button" role="tab" data-tab="buzz" id="tab-buzz" aria-controls="pBuzz" aria-selected="false" tabindex="-1">口碑</button>
+          <button class="tab" type="button" role="tab" data-tab="trace" id="tab-trace" aria-controls="pTrace" aria-selected="false" tabindex="-1">溯源</button>
+          <button class="tab" type="button" role="tab" data-tab="trick" id="tab-trick" aria-controls="pTrick" aria-selected="false" tabindex="-1">话术</button>
+          <button class="tab" type="button" role="tab" data-tab="you" id="tab-you" aria-controls="pYou" aria-selected="false" tabindex="-1">为你<span class="cnt" id="youDot" hidden></span></button>
+        </nav>
+
+        <div class="panel on" data-panel="ing" id="pIng" role="tabpanel" aria-labelledby="tab-ing"></div>
+        <div class="panel" data-panel="nut" id="pNut" role="tabpanel" aria-labelledby="tab-nut"></div>
+        <div class="panel" data-panel="pair" id="pPair" role="tabpanel" aria-labelledby="tab-pair"></div>
+        <div class="panel" data-panel="buzz" id="pBuzz" role="tabpanel" aria-labelledby="tab-buzz"></div>
+        <div class="panel" data-panel="trace" id="pTrace" role="tabpanel" aria-labelledby="tab-trace"></div>
+        <div class="panel" data-panel="trick" id="pTrick" role="tabpanel" aria-labelledby="tab-trick"></div>
+        <div class="panel" data-panel="you" id="pYou" role="tabpanel" aria-labelledby="tab-you"></div>
+      </div>
+    </article>
+  </section>
+
+</main>
+
+<!-- ============ 我的情况抽屉 ============ -->
+<div class="sheet" id="prefSheet" hidden role="dialog" aria-modal="true" aria-label="我的情况">
+  <div class="sheet-card">
+    <div class="sheet-h"><h3>我的情况</h3><button class="x" type="button" data-close aria-label="关闭">×</button></div>
+    <p class="sheet-p">勾上之后，结果里的「为你」会只挑跟你有关的说。选一次，后面都记得。</p>
+    <div class="chips" id="prefChips"></div>
+    <p class="sheet-p small">过敏原（国标 14 类核心致敏物质 + 其他常见致敏食物，勾选后「为你」单独提醒）</p>
+    <input type="search" id="allergySearch" class="allergy-search" placeholder="搜你过敏的食物，如：花生、芒果、虾、牛奶…" autocomplete="off" aria-label="搜索过敏原">
+    <div class="chips" id="allergySearchResult" hidden></div>
+    <div class="chips" id="allergyChips"></div>
+    <button class="more-toggle" id="allergyMore" type="button" aria-expanded="false">查看全部致敏食物</button>
+    <div class="chips" id="allergyChips2" hidden></div>
+    <button class="btn primary wide" type="button" data-close>好了</button>
+  </div>
+</div>
+
+<!-- ============ 按商品名查配料表 ============ -->
+<div class="sheet" id="wechatSheet" hidden role="dialog" aria-modal="true" aria-label="按商品名查配料表">
+  <div class="sheet-card">
+    <div class="sheet-h"><h3>按商品名查配料表</h3><button class="x" type="button" data-close aria-label="关闭">×</button></div>
+    <p class="sheet-p">输入商品名称（品牌可以不填），也可以传一张印着名字的截图，自动认出来。<br>我们会联网找它的配料表，再按国标逐项讲。</p>
+    <label class="btn flat wide" for="wxShotInput">📷 从图库选一张商品截图</label>
+    <input type="file" id="wxShotInput" accept="image/*"
+           style="position:absolute;width:1px;height:1px;opacity:0;overflow:hidden;pointer-events:none">
+    <input class="in" id="wxName" placeholder="商品名称，如：阿萨姆奶茶" autocomplete="off">
+    <input class="in" id="wxBrand" placeholder="品牌（可选），如：统一" autocomplete="off">
+    <button class="btn primary wide" id="btnWxQuery" type="button">联网查配料表</button>
+  </div>
+</div>
+
+<!-- ============ 评价详情（项目内查看原文） ============ -->
+<div class="sheet" id="quoteSheet" hidden role="dialog" aria-modal="true" aria-label="评价原文">
+  <div class="sheet-card wide-card">
+    <div class="sheet-h"><h3>评价原文</h3><button class="x" type="button" data-close aria-label="关闭">×</button></div>
+    <p class="sheet-p quote-full" id="quoteText"></p>
+    <p class="sheet-p small" id="quoteSrc"></p>
+    <div class="page-preview" id="pagePreview">
+      <div class="page-loading" id="pageLoading">正在抓取原文页面…</div>
+      <div class="page-title" id="pageTitle" hidden></div>
+      <div class="page-body" id="pageBody" hidden></div>
+      <div class="page-note" id="pageNote" hidden></div>
+    </div>
+    <button class="btn primary wide" type="button" data-close>知道了</button>
+  </div>
+</div>
+
+<!-- ============ 分享卡片 ============ -->
+<div class="sheet" id="shareSheet" hidden role="dialog" aria-modal="true" aria-label="分享卡片">
+  <div class="sheet-card wide-card">
+    <div class="sheet-h"><h3>分享卡片</h3><button class="x" type="button" data-close aria-label="关闭">×</button></div>
+    <canvas id="shareCanvas" width="1200" height="900" aria-label="分享卡片预览图"></canvas>
+    <div class="scanbtns">
+      <button class="btn primary" id="btnSaveCard" type="button">保存图片</button>
+      <button class="btn flat" type="button" data-close>关闭</button>
+    </div>
+  </div>
+</div>
+
+<div class="toast" id="toast" hidden role="status" aria-live="polite"></div>
+
+<div class="busy" id="busy" hidden role="status" aria-live="polite">
+  <div class="busy-box">
+    <div class="busy-spin" aria-hidden="true"></div>
+    <p id="busyTxt">处理中…</p>
+  </div>
+</div>
+
+<footer class="foot">
+  首届 AgriHackathon 参赛作品 · DeepEggy 团队<br>
+  配料通俗词条由团队人工整理、AI 复核；解读由国标知识库、AI 与联网检索共同支撑，不构成医疗建议。
+</footer>
+
+<script src="ingredient-glossary.js"></script>
+<script src="allergens.js"></script>
+<script src="mock.js"></script>
+<script src="app.js"></script>
+</body>
+</html>

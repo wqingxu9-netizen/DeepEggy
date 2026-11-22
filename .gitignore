@@ -1,0 +1,19 @@
+__pycache__/
+*.py[cod]
+.venv/
+venv/
+.env
+*.local
+.DS_Store
+.idea/
+.vscode/
+node_modules/
+data/raw/
+data/processed/
+data/trace_cache.sqlite
+*.log
+
+# 本地 Key 配置（不要提交）
+scripts/env.local
+.env.local
+*.local

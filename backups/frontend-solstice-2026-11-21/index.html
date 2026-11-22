@@ -1,0 +1,196 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="theme-color" content="oklch(94% 0.03 80)">
+<meta name="description" content="拍一下超市商品，逐项讲清配料表里的每一项是什么、这瓶吃进去多少、按国标该注意什么，并核对「0 蔗糖」这类宣称。">
+<title>看得懂的配料表</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<header class="topbar">
+  <div class="brand">
+    <span class="brand-mark">Deep<em>Eggy</em></span>
+    <span class="brand-sub">超市货架前，帮你把配料表读明白</span>
+  </div>
+  <button class="ghost-btn" id="prefBtn" type="button">偏好<span class="cnt" id="prefDot" hidden></span></button>
+</header>
+
+<main class="app">
+
+  <!-- ============ 首页 ============ -->
+  <section class="view" id="viewHome">
+    <div class="lede">
+      <h1>看不懂配料表？<br>拍一下，三十秒讲明白</h1>
+      <p><span>逐项大白话解释</span><span>这瓶吃进去多少，按国标算</span><span>「0 蔗糖」当场核一遍</span></p>
+    </div>
+
+    <div class="entries">
+      <button class="entry" id="btnBarcode" type="button">
+        <span class="entry-ico" aria-hidden="true">
+          <svg viewBox="0 0 24 24"><path d="M3 6v12M6 6v12M9 6v8M12 6v12M15 6v8M18 6v12M21 6v12"/></svg>
+        </span>
+        <span class="entry-t">扫条形码</span>
+        <span class="entry-d">最快，不怕手抖和反光</span>
+      </button>
+      <button class="entry" id="btnLabel" type="button">
+        <span class="entry-ico" aria-hidden="true">
+          <svg viewBox="0 0 24 24"><path d="M4 8h4l1.5-2h5L16 8h4v10H4z"/><circle cx="12" cy="13" r="3"/></svg>
+        </span>
+        <span class="entry-t">拍配料表</span>
+        <span class="entry-d">没条码、或想逐项看的时候</span>
+      </button>
+    </div>
+
+    <div class="demo">
+      <div class="demo-h">没有实物？点一个示例走完流程</div>
+      <div class="demo-list" id="demoList"></div>
+    </div>
+
+    <div class="history" id="historyBox" hidden>
+      <div class="demo-h">最近扫过</div>
+      <div class="demo-list" id="historyList"></div>
+    </div>
+
+    <figure class="shotcap">
+      <img src="assets/result-shot.png" width="470" height="900" alt="结果页实拍：示例商品某品牌 0 蔗糖乳茶的印章结论，以及每瓶 37.5 克糖、300 千卡、5.0 克蛋白质三项数字，下面是逐项成分释义">
+      <figcaption>结果页实拍，数据来自内置示例，不是某一款商品的实测值。</figcaption>
+    </figure>
+  </section>
+
+  <!-- ============ 取景 / 识别 ============ -->
+  <section class="view" id="viewScan" hidden>
+    <div class="scanmode" id="scanMode">
+      <div class="stage">
+        <video id="cam" playsinline muted></video>
+        <div class="guide guide-bar" aria-hidden="true"></div>
+        <canvas id="probe" width="480" height="360" hidden aria-hidden="true"></canvas>
+      </div>
+      <div class="lightbar">
+        <span>环境亮度</span>
+        <span class="meter"><i id="lightFill"></i></span>
+        <span class="mono" id="lightTxt">检测中</span>
+      </div>
+      <p class="notice" id="lightNotice" hidden>
+        光线偏暗，条码容易识别失败。<b>打开灯或换个位置</b>，也可以用下面的手动方式。
+      </p>
+      <p class="scantip" id="scanTip">把条形码对准框内，保持 15 到 25 厘米</p>
+      <div class="scanbtns">
+        <button class="btn primary" id="btnShoot" type="button">拍照识别</button>
+        <button class="btn flat" id="btnCamOff" type="button">关闭相机</button>
+      </div>
+    </div>
+
+    <div class="fallback">
+      <div class="fallback-h">识别不了？用手动</div>
+      <div class="row">
+        <label class="visually-hidden" for="codeInput">条形码</label>
+        <input class="in mono" id="codeInput" name="barcode" inputmode="numeric" autocomplete="off"
+               placeholder="手输条形码，如 6902000100029" maxlength="14">
+        <button class="btn flat" id="btnCode" type="button">查</button>
+      </div>
+      <label class="btn flat wide" for="imgInput">上传配料表照片<input type="file" id="imgInput" name="label" accept="image/*" hidden></label>
+    </div>
+  </section>
+
+  <!-- ============ 核对识别结果（用户修正） ============ -->
+  <section class="view" id="viewFix" hidden>
+    <div class="fixhead">
+      <h2>核对一下识别结果</h2>
+      <p>识别有偏差会直接影响后面的解释，<b>花十秒改一下更准</b>。</p>
+    </div>
+    <div class="lowconf" id="lowConf"></div>
+    <label class="visually-hidden" for="fixText">识别出的配料表文本</label>
+    <textarea class="fixarea" id="fixText" name="labeltext" spellcheck="false"></textarea>
+    <div class="fixmeta">
+      <span class="mono" id="fixCount">0 项</span>
+      <span>按顿号或逗号自动分项</span>
+    </div>
+    <div class="scanbtns">
+      <button class="btn primary" id="btnFixOk" type="button">确认，开始解读</button>
+      <button class="btn flat" id="btnFixBack" type="button">重拍</button>
+    </div>
+  </section>
+
+  <!-- ============ 结果 ============ -->
+  <section class="view" id="viewResult" hidden>
+    <article class="receipt">
+      <div class="rc-top">
+        <div class="rc-brand" id="rBrand"></div>
+        <h2 class="rc-name" id="rName"></h2>
+        <div class="rc-spec" id="rSpec"></div>
+        <div class="rc-code mono" id="rCode"></div>
+      </div>
+
+      <div class="stamp" id="rStamp"><span id="rStampTxt"></span></div>
+      <p class="verdict-why" id="rWhy"></p>
+
+      <div class="keys" id="rKeys"></div>
+
+      <div class="cutline" aria-hidden="true"></div>
+
+      <nav class="tabs" id="tabs" aria-label="结果分页">
+        <button class="tab on" type="button" data-tab="ing">成分释义</button>
+        <button class="tab" type="button" data-tab="nut">营养</button>
+        <button class="tab" type="button" data-tab="trace">溯源</button>
+        <button class="tab" type="button" data-tab="trick">话术</button>
+        <button class="tab" type="button" data-tab="you">为你<span class="cnt" id="youDot" hidden></span></button>
+      </nav>
+
+      <div class="panel on" data-panel="ing" id="pIng" role="tabpanel"></div>
+      <div class="panel" data-panel="nut" id="pNut" role="tabpanel"></div>
+      <div class="panel" data-panel="trace" id="pTrace" role="tabpanel"></div>
+      <div class="panel" data-panel="trick" id="pTrick" role="tabpanel"></div>
+      <div class="panel" data-panel="you" id="pYou" role="tabpanel"></div>
+
+      <div class="cutline" aria-hidden="true"></div>
+      <div class="rc-foot">
+        <span>解读由 AI 生成，依据食品安全国标 GB 2760 等公开条款，仅供购买参考，不构成医疗建议。</span>
+      </div>
+    </article>
+  </section>
+
+</main>
+
+<div class="actionbar" id="actionbar" hidden>
+  <button class="btn flat" id="btnNext" type="button">再扫一个</button>
+  <button class="btn primary" id="btnShare" type="button">生成分享卡片</button>
+</div>
+
+<!-- ============ 偏好抽屉 ============ -->
+<div class="sheet" id="prefSheet" hidden role="dialog" aria-modal="true" aria-label="我的情况">
+  <div class="sheet-card">
+    <div class="sheet-h"><h3>我的情况</h3><button class="x" type="button" data-close aria-label="关闭">×</button></div>
+    <p class="sheet-p">勾上之后，结果里的「为你」会只挑跟你有关的说。选一次，后面都记得。</p>
+    <div class="chips" id="prefChips"></div>
+    <p class="sheet-p small">过敏原（可多选，会单独提醒）</p>
+    <div class="chips" id="allergyChips"></div>
+    <button class="btn primary wide" type="button" data-close>好了</button>
+  </div>
+</div>
+
+<!-- ============ 分享卡片 ============ -->
+<div class="sheet" id="shareSheet" hidden role="dialog" aria-modal="true" aria-label="分享卡片">
+  <div class="sheet-card">
+    <div class="sheet-h"><h3>分享卡片</h3><button class="x" type="button" data-close aria-label="关闭">×</button></div>
+    <canvas id="shareCanvas" width="900" height="1200" aria-label="分享卡片预览图"></canvas>
+    <div class="scanbtns">
+      <button class="btn primary" id="btnSaveCard" type="button">保存图片</button>
+      <button class="btn flat" type="button" data-close>关闭</button>
+    </div>
+  </div>
+</div>
+
+<div class="toast" id="toast" hidden role="status" aria-live="polite"></div>
+
+<footer class="foot">
+  首届 AgriHackathon 参赛作品，盲审版，页面不含队员信息。<br>
+  示例数据与界面文案在本机生成，接入后端后由国标知识库与联网检索替换。
+</footer>
+
+<script src="mock.js"></script>
+<script src="app.js"></script>
+</body>
+</html>

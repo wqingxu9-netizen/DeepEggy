@@ -1,0 +1,77 @@
+[
+ {
+  "scope": "app",
+  "shape": "app screen (landscape workbench, sticky verdict + readings rail)",
+  "theme": "Console",
+  "genre": "modern-minimal",
+  "mode": "redesign",
+  "depth": "full",
+  "axes": "dark/grotesk-sans/chromatic-amber",
+  "posture": "restrained",
+  "deal": "2/3, seed landscape-desktop-web-tool-17a6·bf51603a·2026-11-21·r0",
+  "signature": "结论与三项读数用等宽数字作仪器读数，左栏 sticky",
+  "nav": "top bar: wordmark + one-line use left, 偏好 right, hairline under",
+  "footer": "页面级脚注：盲审声明 + 数据来源声明",
+  "states": "full/empty on 营养/溯源/为你，取景有权限拒绝与弱光提示",
+  "imagery": "无照片；界面本身即素材，Edge headless 真实截图",
+  "photos": [],
+  "waived": [
+   "1",
+   "28b"
+  ],
+  "hero": "首页左 lede/入口，右示例与历史；结果页左结论读数右五 tab 记录区",
+  "sections": [
+   "首页",
+   "取景/识别",
+   "核对修正",
+   "结果（成分/营养/溯源/话术/为你）",
+   "偏好抽屉",
+   "分享卡片"
+  ],
+  "material": "real: 演示库商品数字、GB 28050 阈值 · absent: 商品实拍、品牌 logo、真实溯源数据；旧小票截图引用已移除，文件留 backups",
+  "render": "static (no puppeteer; Edge headless captures 1440x900 and 500x900)",
+  "review": "finish-review subagent: 6 findings, 6 resolved (card 2-line truth, mobile reading order, ink/cool readings, dialog focus trap+Esc+restore, tab/disclosure ARIA, mobile demo specs)",
+  "prompt": "横屏网页，完全删去小票风格与纸感衬线；保留全部内容、路由与演示数据诚实空态",
+  "fingerprint": "console-landscape-app-2026-11-21",
+  "date": "2026-11-21"
+ },
+ {
+  "scope": "app",
+  "shape": "app screen (receipt-style result page)",
+  "theme": "Solstice",
+  "genre": "editorial",
+  "axes": "light/high-contrast-serif/warm",
+  "posture": "restrained",
+  "draw": "75ec2d",
+  "signature": "小票式结果页：骑缝裁切线 + 双框旋转印章 + 剂量行",
+  "nav": "masthead（左字标，右偏好，2px 墨线压顶）",
+  "footer": "页面级脚注：盲审声明 + 数据来源声明",
+  "states": "loading/empty/error/full on 取景、核对、结果、为你",
+  "imagery": "本项目界面的真实截图（Edge headless 直出），未使用图库照片",
+  "photos": [],
+  "waived": [
+   "1",
+   "37",
+   "28b"
+  ],
+  "dismissed": [
+   "41"
+  ],
+  "hero": "首页=入口对 + 示例列表 + 结果页实拍",
+  "sections": [
+   "首页",
+   "取景/识别",
+   "核对修正",
+   "结果（成分/营养/溯源/话术/为你）",
+   "偏好抽屉",
+   "分享卡片"
+  ],
+  "material": "real: 演示库的商品数字、GB 28050 阈值、本项目的真实界面截图 · absent: 商品实拍照片、品牌 logo、真实溯源数据",
+  "render": "static (no puppeteer; Edge headless captures at 470x900 and 1280x800)",
+  "review": "finish-review subagent: 8 findings, 6 resolved, 1 partial, 1 by design",
+  "prompt": "看得懂的配料表：条码+拍配料表双入口，暗光提示，OCR 后用户修正，逐项释义+摄入量，话术拆穿，溯源两态，同类对比，按人群/过敏原的为你，分享卡片",
+  "fingerprint": "solstice-app-screen-2026-11-21",
+  "date": "2026-11-21",
+  "mode": "build"
+ }
+]
