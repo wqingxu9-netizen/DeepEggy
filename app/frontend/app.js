@@ -675,8 +675,14 @@
       })
     }, 180000).then(function (r) { return r.json(); })
       .then(function (d) {
-        if (d && d.verdict && d.ingredients) { openResult(d, via || 'label'); }
-        else { toast('AI 解读失败：' + ((d && d.error) || '未知错误')); }
+        if (d && d.verdict && d.ingredients) {
+          // 条码解出来的号，别被后端的「未采集」覆盖掉
+          if (meta.barcode && (!d.barcode || d.barcode === '未采集')) { d.barcode = meta.barcode; }
+          // 溯源要吃包装全文（生产商 / SC / 标准号都在配料段之外）。
+          // 后端只回传了「配料：…」那一段，这里补回原始 OCR 全文。
+          if (text) { d.ocrText = text; }
+          openResult(d, via || 'label');
+        } else { toast('AI 解读失败：' + ((d && d.error) || '未知错误')); }
       })
       .catch(function () {
         if (busyCanceled) return;   // 用户自己点了「返回」
@@ -760,6 +766,42 @@
   }
 
   /* ---------------- 拍配料表 ---------------- */
+  // ===== 补丁④：拍照时先试着解照片里的条码 =====
+  // 条码回答「这是哪个商品」（库里可精确命中名字/品牌/规格），OCR 回答「包装上写了什么」。
+  // 解不到、查不到都不打断流程，静默回到原来的 OCR。
+  function barcodeFromFile(file) {
+    return new Promise(function (resolve) {
+      if (!scanner || !scanner.available || !scanner.available()) { resolve(''); return; }
+      var img = new Image();
+      var url = URL.createObjectURL(file);
+      var finish = function (code) { URL.revokeObjectURL(url); resolve(code || ''); };
+      img.onload = function () {
+        inspectBarcodeImage(img).then(function (r) { finish(r && r.code ? r.code : ''); })
+          .catch(function () { finish(''); });
+      };
+      img.onerror = function () { finish(''); };
+      img.src = url;
+    });
+  }
+
+  // 条码命中 → 确定的商品身份；库里没有就只带条码号继续走 OCR
+  function barcodeMeta(code) {
+    if (!code) return Promise.resolve({});
+    return fetchTimeout('/api/scan-barcode?code=' + encodeURIComponent(code), {}, 12000)
+      .then(function (r) { return r.json(); })
+      .then(function (d) {
+        if (!d || !d.found || !d.product) return { barcode: code };
+        var hit = d.product;
+        toast('条码命中：' + ((hit.brand ? hit.brand + ' ' : '') + hit.name));
+        return {
+          name: hit.name || '', brand: hit.brand || '',
+          category: hit.category || '', spec: hit.spec || '',
+          barcode: code
+        };
+      })
+      .catch(function () { return { barcode: code }; });
+  }
+
   function startLabelFlow(file) {
     state.mode = 'label';
     if (!file) {
@@ -775,26 +817,29 @@
     fileToBase64(file, function (b64) {
       if (!b64) { toast('图片读取失败，请重试'); showView('viewHome'); return; }
       showBusy('正在识别配料表…');
-      busyFetch('/api/ocr', {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ imageBase64: b64 })
-      }, 60000).then(function (r) {
-        if (r.status === 501) {
-          // 保留后端给出的具体原因（如"图片没认到清晰文字"）
-          return r.json().then(function (d) { d.ocr_off = true; return d; }).catch(function () { return { ocr_off: true }; });
-        }
-        return r.json();
-      }).then(function (d) {
-        if (d && d.text) {
-          // OCR 原文不展示给用户；后端会先截取配料区，再匹配本地配料库。
-          return analyzeByText(d.text, {}, 'label');
-        } else if (d && d.ocr_off) {
-          var why = (d && d.error) ? String(d.error).replace(/^OCR 不可用：/, '') : '';
-          toast(why ? ('识别暂时不可用：' + why.slice(0, 80)) : '识别服务暂时不可用，请稍后重试');
-        } else {
-          toast('识别失败：' + ((d && d.error) || '未知错误'));
-        }
+      barcodeFromFile(file).then(barcodeMeta).then(function (meta) {
+        if (meta.barcode) { $('#scanTip').textContent = '读到条码 ' + meta.barcode + '，继续识别配料表…'; }
+        return busyFetch('/api/ocr', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({ imageBase64: b64 })
+        }, 60000).then(function (r) {
+          if (r.status === 501) {
+            // 保留后端给出的具体原因（如"图片没认到清晰文字"）
+            return r.json().then(function (d) { d.ocr_off = true; return d; }).catch(function () { return { ocr_off: true }; });
+          }
+          return r.json();
+        }).then(function (d) {
+          if (d && d.text) {
+            // OCR 原文不展示给用户；后端会先截取配料区，再匹配本地配料库。
+            return analyzeByText(d.text, meta, 'label');
+          } else if (d && d.ocr_off) {
+            var why = (d && d.error) ? String(d.error).replace(/^OCR 不可用：/, '') : '';
+            toast(why ? ('识别暂时不可用：' + why.slice(0, 80)) : '识别服务暂时不可用，请稍后重试');
+          } else {
+            toast('识别失败：' + ((d && d.error) || '未知错误'));
+          }
+        });
       }).catch(function () {
         if (busyCanceled) return;   // 用户自己点了「返回」
         toast('连不上后端，请检查网络后重试');
@@ -1165,15 +1210,60 @@
       '<div class="note">同类数据来自演示库，接后端后按知识库实时检索。</div></div>';
   }
 
+  // ===== 补丁②：溯源页先摆「不靠联网也能核实」的几项 =====
+  // 联网其实只能对上标准号和生产主体；品牌官网 / 原料产地 / 流通渠道大多查不到。
+  // 与其整页都是"查不到"，不如把包装直读的硬信息顶到最前面。
+  // 后端的包装字段切分会把「地址 / 受托方」一起吞进生产主体（trace.py 的 FIELD_CUT 少了这几个边界词），
+  // 展示层先按字段名截断，别把半截地址摆出来。
+  function tidyCompany(text) {
+    var s = String(text || '');
+    s = s.split(/地\s*址|受托方|委托方|监制方|食品生产许可证|生产许可证|电话|邮编|网址/)[0];
+    s = s.replace(/[\s\u3000]+/g, ' ').replace(/[，,；;、\s]+$/, '').replace(/[，,；;、\s]*食品$/, '');
+    return s.trim().slice(0, 40);
+  }
+
+  function verifiableHtml(d) {
+    var id = d.identity || {};
+    var stds = id.std_nos || [];
+    var producers = (id.label_producers || []).map(tidyCompany).filter(Boolean);
+    var scs = id.sc_codes || [];
+    var stdHits = [];
+    (d.nodes || []).forEach(function (node) {
+      if (node.stage !== 'inspect') return;
+      (node.items || []).forEach(function (it) {
+        if (it.confidence === 'proven' && it.text) stdHits.push(String(it.text));
+      });
+    });
+    if (!stds.length && !producers.length && !scs.length) return '';
+    var rows = '';
+    if (stds.length) {
+      rows += '<li>包装标注执行标准 <b>' + esc(stds.join('、')) + '</b>' +
+        (stdHits.length
+          ? '，国标库对到：' + esc(stdHits.slice(0, 2).join('；'))
+          : '，国标库未收录该编号') + '</li>';
+    }
+    if (producers.length) {
+      rows += '<li>包装标注生产主体 <b>' + esc(producers.slice(0, 2).join('、')) + '</b></li>';
+    }
+    if (scs.length) {
+      rows += '<li>食品生产许可证号 <b>' + esc(scs.join('、')) + '</b></li>';
+    }
+    return '<div class="trace"><div class="st"><span class="ok">不靠联网也能核实</span>' +
+      '<span class="src-line">读自包装本身</span></div>' +
+      '<ul class="lns">' + rows + '</ul>' +
+      '<div class="src">这几项来自包装与国标库，不需要联网；联网只用来补品牌官网、原料产地与流通渠道。</div></div>';
+  }
+
   function renderTraceBackend(p, d, c) {
     var confMap = { proven: '已证实', probable: '待核验', unverified: '未核实', unknown: '查不到' };
     var badge = function (conf) { return '<i class="k">' + (confMap[conf] || esc(conf)) + '</i>'; };
     var id = d.identity || {};
     var html = '<div class="sect-t">溯源，联网检索（后端实时）</div>' +
+      verifiableHtml(d) +
       '<div class="trace">' +
       '<div class="st"><span class="ok">后端已联网检索</span>' +
       '<span class="src-line">识别：' + esc(id.name || p.name) + '</span></div>' +
-      '<div class="pl">生产主体：' + esc((id.label_producers || []).join('、') || '包装未标注') + '</div>' +
+      '<div class="pl">生产主体：' + esc((id.label_producers || []).map(tidyCompany).filter(Boolean).join('、') || '包装未标注') + '</div>' +
       (id.std_nos && id.std_nos.length ? '<div class="pl">标准号：' + esc(id.std_nos.join('、')) + '</div>' : '') +
       ((d.nodes || []).map(function (node) {
         return '<div class="sect-t">' + esc(node.title) + '</div><ul class="lns">' +
