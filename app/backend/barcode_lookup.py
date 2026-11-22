@@ -16,6 +16,7 @@ import os
 import re
 import urllib.parse
 import urllib.request
+from pathlib import Path
 
 _TIMEOUT = 7
 
@@ -106,10 +107,49 @@ def lookup_cn(code: str):
         return None
 
 
+# ---------- 本地合并总表（队友提供的 16,522 条条码→配料表） ----------
+
+_POOL = None
+
+
+def _load_pool() -> dict:
+    """合并总表：条码 → 商品名/品牌/配料表。命中就免一次联网。"""
+    global _POOL
+    if _POOL is not None:
+        return _POOL
+    _POOL = {}
+    try:
+        p = Path(__file__).resolve().parents[2] / "data" / "barcode_pool.json"
+        if p.exists():
+            data = json.loads(p.read_text(encoding="utf-8")) or {}
+            _POOL = data.get("items") or {}
+    except Exception:
+        _POOL = {}
+    return _POOL
+
+
+def lookup_pool(code: str):
+    item = _load_pool().get(code)
+    if not item:
+        return None
+    return {
+        "name": (item.get("name") or "")[:60],
+        "brand": (item.get("brand") or "")[:30],
+        "category": (item.get("category") or "")[:30],
+        "spec": (item.get("spec") or "")[:20],
+        "company": "",
+        "image": "",
+        "ingredients": (item.get("ingredients") or "")[:1500],
+        "source": "barcode-pool",
+    }
+
 def lookup(code: str):
     """条码 → 商品身份。返回 (product, source) 或 (None, None)。"""
     if not code:
         return None, None
+    prod = lookup_pool(code)
+    if prod:
+        return prod, prod["source"]
     prod = lookup_off_live(code)
     if prod:
         return prod, prod["source"]
