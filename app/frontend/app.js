@@ -612,7 +612,8 @@
         analyzeByText(prod.ingredients, {
           name: prod.name || '',
           brand: prod.brand || '',
-          category: prod.categories || ''
+          category: prod.categories || '',
+          barcode: code            // 扫到的码带到结果卡上，别显示「未采集」
         }, via);
         return;
       }
