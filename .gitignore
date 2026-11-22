@@ -17,3 +17,7 @@ data/trace_cache.sqlite
 scripts/env.local
 .env.local
 *.local
+
+# 生成物：PPT 构建状态、预览服务缓存（成品已整理进 docs/pitch/）
+output/
+
