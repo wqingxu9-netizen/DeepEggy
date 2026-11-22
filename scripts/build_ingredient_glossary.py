@@ -11,7 +11,8 @@ from pathlib import Path
 from xml.etree import ElementTree as ET
 
 ROOT = Path(__file__).resolve().parent.parent
-DEFAULT_SOURCE = ROOT / "data" / "ingredient_glossary" / "original" / "配料通俗化解释.xlsx"
+DEFAULT_SOURCE = ROOT / "data" / "ingredient_glossary" / "original" / "配料通俗化解释_合并208条.xlsx"
+EXPECTED_ROWS = 208
 REVIEW_OUTPUT = ROOT / "data" / "ingredient_glossary" / "glossary.review.json"
 REPORT_OUTPUT = ROOT / "data" / "ingredient_glossary" / "build_report.json"
 FRONTEND_OUTPUT = ROOT / "app" / "frontend" / "ingredient-glossary.js"
@@ -134,8 +135,8 @@ def read_workbook(path: Path) -> list[dict[str, str]]:
     if not table or table[0] != EXPECTED_HEADERS:
         raise ValueError("工作表列名与预期不一致，已停止导入")
     rows = [dict(zip(EXPECTED_HEADERS, values)) for values in table[1:] if any(values)]
-    if len(rows) != 143:
-        raise ValueError(f"预期 143 条，实际 {len(rows)} 条，已停止导入")
+    if len(rows) != EXPECTED_ROWS:
+        raise ValueError(f"预期 {EXPECTED_ROWS} 条，实际 {len(rows)} 条，已停止导入")
     return rows
 
 

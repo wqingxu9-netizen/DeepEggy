@@ -1,6 +1,6 @@
 {
-  "source": "data\\ingredient_glossary\\original\\配料通俗化解释.xlsx",
-  "source_sha256": "01986dbd92fe24f1971c6e568e80d32518c7e6561050d5577b6795ca576d5e4b",
+  "source": "data\\ingredient_glossary\\original\\配料通俗化解释_合并208条.xlsx",
+  "source_sha256": "418c1bf690f69ed48d3feba6715acde1ac19851149bd300e89b45d36fb15d872",
   "rows": 208,
   "entity_types": {
     "additive": 117,
