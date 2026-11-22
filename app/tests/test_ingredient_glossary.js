@@ -10,13 +10,13 @@ const demo = global.window.DEMO;
 const review = JSON.parse(fs.readFileSync(path.join(root, 'data', 'ingredient_glossary', 'glossary.review.json'), 'utf8'));
 const report = JSON.parse(fs.readFileSync(path.join(root, 'data', 'ingredient_glossary', 'build_report.json'), 'utf8'));
 
-assert.equal(glossary.entries.length, 143);
-assert.equal(review.entries.length, 143);
-assert.equal(report.lookup_surfaces, 192);
-assert.deepEqual(report.entity_types, { additive: 86, allergen: 7, ingredient: 43, nutrition: 5, processing_related: 2 });
-assert.equal(report.cautions_withheld, 143);
-assert.equal(report.blank_chemical_information, 143);
-assert.equal(report.blank_evidence, 143);
+assert.equal(glossary.entries.length, 208);
+assert.equal(review.entries.length, 208);
+assert.equal(report.lookup_surfaces, 323);
+assert.deepEqual(report.entity_types, { additive: 117, allergen: 7, ingredient: 77, nutrition: 5, processing_related: 2 });
+assert.equal(report.cautions_withheld, 208);
+assert.equal(report.blank_chemical_information, 208);
+assert.equal(report.blank_evidence, 208);
 assert.ok(glossary.entries.every(entry => !Object.hasOwn(entry, 'caution')));
 
 assert.equal(glossary.lookup('TBHQ').name, '特丁基对苯二酚');
@@ -24,7 +24,7 @@ assert.equal(glossary.lookup(' tbhq ').name, '特丁基对苯二酚');
 assert.equal(glossary.lookup('抗坏血酸').name, '维生素C');
 assert.equal(glossary.lookup('维生素C（抗坏血酸）').name, '维生素C');
 assert.equal(glossary.lookup('谷氨酸钠').name, '味精');
-for (const alias of ['果糖', '奶粉', '鲜牛奶', '游离糖', '食用蓝色2号', '内酯', '牛油']) {
+for (const alias of ['果糖', '奶粉', '鲜牛奶', '游离糖', '食用蓝色2号', '内酯']) {
   assert.equal(glossary.lookup(alias), null, `过宽别名不应匹配：${alias}`);
 }
 assert.equal(glossary.lookup('完全不存在的配料'), null);
@@ -57,4 +57,4 @@ assert.equal(result.ingredients[3].caution, '');
 assert.ok(result.ingNote.includes('不据此判断合法用量或个体健康风险'));
 assert.ok(demo.fromText('水').ingredients[0].what.includes('排第一位'));
 
-console.log('Ingredient glossary tests passed: 143 entries, 192 exact surfaces, fallback integration verified.');
+console.log('Ingredient glossary tests passed: 208 entries, 323 exact surfaces, fallback integration verified.');

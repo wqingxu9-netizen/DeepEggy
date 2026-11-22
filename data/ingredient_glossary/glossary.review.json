@@ -1,6 +1,6 @@
 {
   "source": "data\\ingredient_glossary\\original\\配料通俗化解释.xlsx",
-  "source_sha256": "1e5794b1a8d4c925500f900d9f25b6853e081ec6871a41610c4c491cf8ebc63e",
+  "source_sha256": "01986dbd92fe24f1971c6e568e80d32518c7e6561050d5577b6795ca576d5e4b",
   "scope": "队友原表全量保留；AI 仅复核名称、别名、分类、通俗解释和常见用途",
   "not_used_for": [
     "CNN 训练标签",
@@ -1481,7 +1481,7 @@
       "original": {
         "序号": "44",
         "配料名称": "聚氧乙烯山梨醇酐单油酸酯",
-        "别名/规范名": "吐温80",
+        "别名/规范名": "吐温80/聚山梨醇酯80",
         "分类": "食品添加剂",
         "功能类别": "乳化剂",
         "通俗解释": "俗称吐温80，乳化能力很强的乳化剂",
@@ -1499,7 +1499,8 @@
         "what": "俗称吐温80，乳化能力很强的乳化剂",
         "uses": "冰淇淋、饮料、糕点",
         "aliases": [
-          "吐温80"
+          "吐温80",
+          "聚山梨醇酯80"
         ]
       },
       "review": {
@@ -1763,7 +1764,7 @@
       "original": {
         "序号": "52",
         "配料名称": "明胶",
-        "别名/规范名": "无",
+        "别名/规范名": "食用明胶",
         "分类": "食品添加剂",
         "功能类别": "增稠剂",
         "通俗解释": "用动物骨头和皮熬出来的蛋白质胶",
@@ -1780,7 +1781,9 @@
         "role": "增稠剂",
         "what": "用动物骨头和皮熬出来的蛋白质胶",
         "uses": "软糖、果冻、胶囊、酸奶",
-        "aliases": []
+        "aliases": [
+          "食用明胶"
+        ]
       },
       "review": {
         "status": "ai_reviewed_identity_and_common_uses",
@@ -2718,7 +2721,7 @@
       "original": {
         "序号": "80",
         "配料名称": "食用香精",
-        "别名/规范名": "香精",
+        "别名/规范名": "香精/食用香精香料/天然香料",
         "分类": "食品添加剂",
         "功能类别": "香精香料",
         "通俗解释": "人工调配出来的香味成分，让食品有香味",
@@ -2736,7 +2739,9 @@
         "what": "由食用香料等调配的香味成分，不等于果汁或天然原料。",
         "uses": "饮料、糖果、饼干、冰淇淋",
         "aliases": [
-          "香精"
+          "香精",
+          "食用香精香料",
+          "天然香料"
         ]
       },
       "review": {
@@ -3064,7 +3069,7 @@
       "original": {
         "序号": "90",
         "配料名称": "水",
-        "别名/规范名": "无",
+        "别名/规范名": "饮用水",
         "分类": "基础食材",
         "功能类别": "无",
         "通俗解释": "就是水，几乎所有食品的第一位配料",
@@ -3081,7 +3086,9 @@
         "role": "基础食材",
         "what": "食品中的基础原料；排在配料表首位时，通常用量最大。",
         "uses": "饮料、糕点、酱料、乳制品",
-        "aliases": []
+        "aliases": [
+          "饮用水"
+        ]
       },
       "review": {
         "status": "ai_reviewed_identity_and_common_uses",
@@ -3134,7 +3141,7 @@
       "original": {
         "序号": "92",
         "配料名称": "食用盐",
-        "别名/规范名": "氯化钠",
+        "别名/规范名": "氯化钠/低钠盐",
         "分类": "基础食材",
         "功能类别": "无",
         "通俗解释": "就是盐，调味也帮防变质",
@@ -3152,7 +3159,8 @@
         "what": "就是盐，调味也帮防变质",
         "uses": "几乎所有咸味食品",
         "aliases": [
-          "氯化钠"
+          "氯化钠",
+          "低钠盐"
         ]
       },
       "review": {
@@ -3237,7 +3245,7 @@
       "original": {
         "序号": "95",
         "配料名称": "玉米淀粉",
-        "别名/规范名": "无",
+        "别名/规范名": "食用玉米淀粉",
         "分类": "基础食材",
         "功能类别": "无",
         "通俗解释": "用玉米做的淀粉，用来勾芡、上浆、增稠",
@@ -3254,7 +3262,9 @@
         "role": "基础食材",
         "what": "用玉米做的淀粉，用来勾芡、上浆、增稠",
         "uses": "勾芡、糕点、酱料、粉条",
-        "aliases": []
+        "aliases": [
+          "食用玉米淀粉"
+        ]
       },
       "review": {
         "status": "ai_reviewed_identity_and_common_uses",
@@ -3513,7 +3523,7 @@
       "original": {
         "序号": "103",
         "配料名称": "无水奶油",
-        "别名/规范名": "无",
+        "别名/规范名": "无水黄油",
         "分类": "基础食材",
         "功能类别": "无",
         "通俗解释": "几乎纯的乳脂肪，奶香比黄油更浓",
@@ -3530,7 +3540,9 @@
         "role": "基础食材",
         "what": "几乎纯的乳脂肪，奶香比黄油更浓",
         "uses": "巧克力、饼干、冰淇淋",
-        "aliases": []
+        "aliases": [
+          "无水黄油"
+        ]
       },
       "review": {
         "status": "ai_reviewed_identity_and_common_uses",
@@ -4090,7 +4102,7 @@
       "original": {
         "序号": "120",
         "配料名称": "葡萄糖",
-        "别名/规范名": "无",
+        "别名/规范名": "食用葡萄糖",
         "分类": "基础食材",
         "功能类别": "无",
         "通俗解释": "最基础的糖，能被身体直接吸收",
@@ -4107,7 +4119,9 @@
         "role": "基础食材",
         "what": "最基础的糖，能被身体直接吸收",
         "uses": "饮料、糖果、冲剂、运动食品",
-        "aliases": []
+        "aliases": [
+          "食用葡萄糖"
+        ]
       },
       "review": {
         "status": "ai_reviewed_identity_and_common_uses",
@@ -4222,7 +4236,7 @@
       "original": {
         "序号": "124",
         "配料名称": "酱油",
-        "别名/规范名": "酿造酱油/配制酱油",
+        "别名/规范名": "酿造酱油/配制酱油/生抽/老抽",
         "分类": "基础食材",
         "功能类别": "无",
         "通俗解释": "大豆和小麦发酵做成的咸鲜调味液",
@@ -4241,7 +4255,9 @@
         "uses": "炒菜、凉拌、腌制、蘸料",
         "aliases": [
           "酿造酱油",
-          "配制酱油"
+          "配制酱油",
+          "生抽",
+          "老抽"
         ]
       },
       "review": {
@@ -4919,6 +4935,2246 @@
         "changes": [
           "通俗解释"
         ],
+        "excluded_lookup_aliases": {},
+        "caution_display": "withheld_no_source_column",
+        "evidence_status": "not_provided"
+      }
+    },
+    {
+      "row": 145,
+      "name": "植物油",
+      "original": {
+        "序号": "144",
+        "配料名称": "植物油",
+        "别名/规范名": "精炼植物油",
+        "分类": "基础配料",
+        "功能类别": "油脂",
+        "通俗解释": "从油料作物提取的精炼食用油，具体是哪种要看括号里写的。",
+        "常见用途（哪些食品里常见）": "饼干、薯片、调味酱",
+        "注意事项（谁要注意）": "",
+        "化学信息": "",
+        "依据": ""
+      },
+      "cleaned": {
+        "id": 144,
+        "name": "植物油",
+        "entity_type": "ingredient",
+        "category": "基础配料",
+        "role": "油脂",
+        "what": "从油料作物提取的精炼食用油，具体是哪种要看括号里写的。",
+        "uses": "饼干、薯片、调味酱",
+        "aliases": [
+          "精炼植物油"
+        ]
+      },
+      "review": {
+        "status": "ai_reviewed_identity_and_common_uses",
+        "changes": [],
+        "excluded_lookup_aliases": {},
+        "caution_display": "withheld_no_source_column",
+        "evidence_status": "not_provided"
+      }
+    },
+    {
+      "row": 146,
+      "name": "维生素B₁",
+      "original": {
+        "序号": "145",
+        "配料名称": "维生素B₁",
+        "别名/规范名": "维生素B1/盐酸硫胺素/硫胺素",
+        "分类": "食品添加剂",
+        "功能类别": "营养强化剂",
+        "通俗解释": "硫胺素，参与糖类代谢，加热时容易损失。",
+        "常见用途（哪些食品里常见）": "强化面粉、饼干、饮料",
+        "注意事项（谁要注意）": "",
+        "化学信息": "",
+        "依据": ""
+      },
+      "cleaned": {
+        "id": 145,
+        "name": "维生素B₁",
+        "entity_type": "additive",
+        "category": "食品添加剂",
+        "role": "营养强化剂",
+        "what": "硫胺素，参与糖类代谢，加热时容易损失。",
+        "uses": "强化面粉、饼干、饮料",
+        "aliases": [
+          "盐酸硫胺素",
+          "硫胺素"
+        ]
+      },
+      "review": {
+        "status": "ai_reviewed_identity_and_common_uses",
+        "changes": [],
+        "excluded_lookup_aliases": {},
+        "caution_display": "withheld_no_source_column",
+        "evidence_status": "not_provided"
+      }
+    },
+    {
+      "row": 147,
+      "name": "维生素B₂",
+      "original": {
+        "序号": "146",
+        "配料名称": "维生素B₂",
+        "别名/规范名": "维生素B2/核黄素",
+        "分类": "食品添加剂",
+        "功能类别": "营养强化剂",
+        "通俗解释": "核黄素，见光容易分解。",
+        "常见用途（哪些食品里常见）": "强化面粉、乳制品、饮料",
+        "注意事项（谁要注意）": "",
+        "化学信息": "",
+        "依据": ""
+      },
+      "cleaned": {
+        "id": 146,
+        "name": "维生素B₂",
+        "entity_type": "additive",
+        "category": "食品添加剂",
+        "role": "营养强化剂",
+        "what": "核黄素，见光容易分解。",
+        "uses": "强化面粉、乳制品、饮料",
+        "aliases": [
+          "核黄素"
+        ]
+      },
+      "review": {
+        "status": "ai_reviewed_identity_and_common_uses",
+        "changes": [],
+        "excluded_lookup_aliases": {},
+        "caution_display": "withheld_no_source_column",
+        "evidence_status": "not_provided"
+      }
+    },
+    {
+      "row": 148,
+      "name": "糯米粉",
+      "original": {
+        "序号": "147",
+        "配料名称": "糯米粉",
+        "别名/规范名": "糯米面",
+        "分类": "基础食材",
+        "功能类别": "主料",
+        "通俗解释": "糯米磨的粉，黏性大、口感糯。",
+        "常见用途（哪些食品里常见）": "汤圆、年糕、糯米糍",
+        "注意事项（谁要注意）": "",
+        "化学信息": "",
+        "依据": ""
+      },
+      "cleaned": {
+        "id": 147,
+        "name": "糯米粉",
+        "entity_type": "ingredient",
+        "category": "基础食材",
+        "role": "主料",
+        "what": "糯米磨的粉，黏性大、口感糯。",
+        "uses": "汤圆、年糕、糯米糍",
+        "aliases": [
+          "糯米面"
+        ]
+      },
+      "review": {
+        "status": "ai_reviewed_identity_and_common_uses",
+        "changes": [],
+        "excluded_lookup_aliases": {},
+        "caution_display": "withheld_no_source_column",
+        "evidence_status": "not_provided"
+      }
+    },
+    {
+      "row": 149,
+      "name": "燕麦片",
+      "original": {
+        "序号": "148",
+        "配料名称": "燕麦片",
+        "别名/规范名": "燕麦",
+        "分类": "基础食材",
+        "功能类别": "主料",
+        "通俗解释": "燕麦压扁的片，膳食纤维较多。",
+        "常见用途（哪些食品里常见）": "麦片、饼干、早餐",
+        "注意事项（谁要注意）": "",
+        "化学信息": "",
+        "依据": ""
+      },
+      "cleaned": {
+        "id": 148,
+        "name": "燕麦片",
+        "entity_type": "ingredient",
+        "category": "基础食材",
+        "role": "主料",
+        "what": "燕麦压扁的片，膳食纤维较多。",
+        "uses": "麦片、饼干、早餐",
+        "aliases": [
+          "燕麦"
+        ]
+      },
+      "review": {
+        "status": "ai_reviewed_identity_and_common_uses",
+        "changes": [],
+        "excluded_lookup_aliases": {},
+        "caution_display": "withheld_no_source_column",
+        "evidence_status": "not_provided"
+      }
+    },
+    {
+      "row": 150,
+      "name": "荞麦粉",
+      "original": {
+        "序号": "149",
+        "配料名称": "荞麦粉",
+        "别名/规范名": "",
+        "分类": "基础食材",
+        "功能类别": "主料",
+        "通俗解释": "荞麦磨的粉，带特殊香味。",
+        "常见用途（哪些食品里常见）": "荞麦面、饼干、挂面",
+        "注意事项（谁要注意）": "",
+        "化学信息": "",
+        "依据": ""
+      },
+      "cleaned": {
+        "id": 149,
+        "name": "荞麦粉",
+        "entity_type": "ingredient",
+        "category": "基础食材",
+        "role": "主料",
+        "what": "荞麦磨的粉，带特殊香味。",
+        "uses": "荞麦面、饼干、挂面",
+        "aliases": []
+      },
+      "review": {
+        "status": "ai_reviewed_identity_and_common_uses",
+        "changes": [],
+        "excluded_lookup_aliases": {},
+        "caution_display": "withheld_no_source_column",
+        "evidence_status": "not_provided"
+      }
+    },
+    {
+      "row": 151,
+      "name": "玉米粉",
+      "original": {
+        "序号": "150",
+        "配料名称": "玉米粉",
+        "别名/规范名": "玉米面",
+        "分类": "基础食材",
+        "功能类别": "主料",
+        "通俗解释": "玉米磨的粉，颜色偏黄。",
+        "常见用途（哪些食品里常见）": "窝头、玉米饼、膨化食品",
+        "注意事项（谁要注意）": "",
+        "化学信息": "",
+        "依据": ""
+      },
+      "cleaned": {
+        "id": 150,
+        "name": "玉米粉",
+        "entity_type": "ingredient",
+        "category": "基础食材",
+        "role": "主料",
+        "what": "玉米磨的粉，颜色偏黄。",
+        "uses": "窝头、玉米饼、膨化食品",
+        "aliases": [
+          "玉米面"
+        ]
+      },
+      "review": {
+        "status": "ai_reviewed_identity_and_common_uses",
+        "changes": [],
+        "excluded_lookup_aliases": {},
+        "caution_display": "withheld_no_source_column",
+        "evidence_status": "not_provided"
+      }
+    },
+    {
+      "row": 152,
+      "name": "红薯淀粉",
+      "original": {
+        "序号": "151",
+        "配料名称": "红薯淀粉",
+        "别名/规范名": "甘薯淀粉/地瓜淀粉",
+        "分类": "基础食材",
+        "功能类别": "淀粉",
+        "通俗解释": "红薯提取的淀粉，吸水强、口感滑。",
+        "常见用途（哪些食品里常见）": "粉条、酥肉、酱料",
+        "注意事项（谁要注意）": "",
+        "化学信息": "",
+        "依据": ""
+      },
+      "cleaned": {
+        "id": 151,
+        "name": "红薯淀粉",
+        "entity_type": "ingredient",
+        "category": "基础食材",
+        "role": "淀粉",
+        "what": "红薯提取的淀粉，吸水强、口感滑。",
+        "uses": "粉条、酥肉、酱料",
+        "aliases": [
+          "甘薯淀粉",
+          "地瓜淀粉"
+        ]
+      },
+      "review": {
+        "status": "ai_reviewed_identity_and_common_uses",
+        "changes": [],
+        "excluded_lookup_aliases": {},
+        "caution_display": "withheld_no_source_column",
+        "evidence_status": "not_provided"
+      }
+    },
+    {
+      "row": 153,
+      "name": "小麦淀粉",
+      "original": {
+        "序号": "152",
+        "配料名称": "小麦淀粉",
+        "别名/规范名": "澄粉/澄面",
+        "分类": "基础食材",
+        "功能类别": "淀粉",
+        "通俗解释": "小麦提取的淀粉，也叫澄粉，蒸出来透明。",
+        "常见用途（哪些食品里常见）": "虾饺、凉皮、水晶糕",
+        "注意事项（谁要注意）": "",
+        "化学信息": "",
+        "依据": ""
+      },
+      "cleaned": {
+        "id": 152,
+        "name": "小麦淀粉",
+        "entity_type": "ingredient",
+        "category": "基础食材",
+        "role": "淀粉",
+        "what": "小麦提取的淀粉，也叫澄粉，蒸出来透明。",
+        "uses": "虾饺、凉皮、水晶糕",
+        "aliases": [
+          "澄粉",
+          "澄面"
+        ]
+      },
+      "review": {
+        "status": "ai_reviewed_identity_and_common_uses",
+        "changes": [],
+        "excluded_lookup_aliases": {},
+        "caution_display": "withheld_no_source_column",
+        "evidence_status": "not_provided"
+      }
+    },
+    {
+      "row": 154,
+      "name": "米粉",
+      "original": {
+        "序号": "153",
+        "配料名称": "米粉",
+        "别名/规范名": "大米粉",
+        "分类": "基础食材",
+        "功能类别": "主料",
+        "通俗解释": "大米磨的粉。",
+        "常见用途（哪些食品里常见）": "米粉、糕点、汤圆",
+        "注意事项（谁要注意）": "",
+        "化学信息": "",
+        "依据": ""
+      },
+      "cleaned": {
+        "id": 153,
+        "name": "米粉",
+        "entity_type": "ingredient",
+        "category": "基础食材",
+        "role": "主料",
+        "what": "大米磨的粉。",
+        "uses": "米粉、糕点、汤圆",
+        "aliases": [
+          "大米粉"
+        ]
+      },
+      "review": {
+        "status": "ai_reviewed_identity_and_common_uses",
+        "changes": [],
+        "excluded_lookup_aliases": {},
+        "caution_display": "withheld_no_source_column",
+        "evidence_status": "not_provided"
+      }
+    },
+    {
+      "row": 155,
+      "name": "谷朊粉",
+      "original": {
+        "序号": "154",
+        "配料名称": "谷朊粉",
+        "别名/规范名": "活性面筋/面筋粉",
+        "分类": "基础配料",
+        "功能类别": "蛋白原料",
+        "通俗解释": "小麦提取的活性面筋蛋白，用来增加筋道。",
+        "常见用途（哪些食品里常见）": "面筋制品、面包、素肉",
+        "注意事项（谁要注意）": "",
+        "化学信息": "",
+        "依据": ""
+      },
+      "cleaned": {
+        "id": 154,
+        "name": "谷朊粉",
+        "entity_type": "ingredient",
+        "category": "基础配料",
+        "role": "蛋白原料",
+        "what": "小麦提取的活性面筋蛋白，用来增加筋道。",
+        "uses": "面筋制品、面包、素肉",
+        "aliases": [
+          "活性面筋",
+          "面筋粉"
+        ]
+      },
+      "review": {
+        "status": "ai_reviewed_identity_and_common_uses",
+        "changes": [],
+        "excluded_lookup_aliases": {},
+        "caution_display": "withheld_no_source_column",
+        "evidence_status": "not_provided"
+      }
+    },
+    {
+      "row": 156,
+      "name": "起酥油",
+      "original": {
+        "序号": "155",
+        "配料名称": "起酥油",
+        "别名/规范名": "",
+        "分类": "基础配料",
+        "功能类别": "油脂",
+        "通俗解释": "让烘焙食品起酥的专用油脂，常以棕榈油为主。",
+        "常见用途（哪些食品里常见）": "饼干、派、油炸食品",
+        "注意事项（谁要注意）": "",
+        "化学信息": "",
+        "依据": ""
+      },
+      "cleaned": {
+        "id": 155,
+        "name": "起酥油",
+        "entity_type": "ingredient",
+        "category": "基础配料",
+        "role": "油脂",
+        "what": "让烘焙食品起酥的专用油脂，常以棕榈油为主。",
+        "uses": "饼干、派、油炸食品",
+        "aliases": []
+      },
+      "review": {
+        "status": "ai_reviewed_identity_and_common_uses",
+        "changes": [],
+        "excluded_lookup_aliases": {},
+        "caution_display": "withheld_no_source_column",
+        "evidence_status": "not_provided"
+      }
+    },
+    {
+      "row": 157,
+      "name": "人造奶油",
+      "original": {
+        "序号": "156",
+        "配料名称": "人造奶油",
+        "别名/规范名": "麦淇淋/玛琪琳",
+        "分类": "基础配料",
+        "功能类别": "油脂",
+        "通俗解释": "植物油加工成的奶油替代品。",
+        "常见用途（哪些食品里常见）": "蛋糕、面包、饼干",
+        "注意事项（谁要注意）": "",
+        "化学信息": "",
+        "依据": ""
+      },
+      "cleaned": {
+        "id": 156,
+        "name": "人造奶油",
+        "entity_type": "ingredient",
+        "category": "基础配料",
+        "role": "油脂",
+        "what": "植物油加工成的奶油替代品。",
+        "uses": "蛋糕、面包、饼干",
+        "aliases": [
+          "麦淇淋",
+          "玛琪琳"
+        ]
+      },
+      "review": {
+        "status": "ai_reviewed_identity_and_common_uses",
+        "changes": [],
+        "excluded_lookup_aliases": {},
+        "caution_display": "withheld_no_source_column",
+        "evidence_status": "not_provided"
+      }
+    },
+    {
+      "row": 158,
+      "name": "植脂末",
+      "original": {
+        "序号": "157",
+        "配料名称": "植脂末",
+        "别名/规范名": "奶精/咖啡伴侣",
+        "分类": "需注意成分",
+        "功能类别": "奶感",
+        "通俗解释": "糖浆和植物油做成的粉末，冲出来有奶味，但不是奶粉。",
+        "常见用途（哪些食品里常见）": "奶茶、咖啡伴侣、饼干",
+        "注意事项（谁要注意）": "",
+        "化学信息": "",
+        "依据": ""
+      },
+      "cleaned": {
+        "id": 157,
+        "name": "植脂末",
+        "entity_type": "ingredient",
+        "category": "需注意成分",
+        "role": "奶感",
+        "what": "糖浆和植物油做成的粉末，冲出来有奶味，但不是奶粉。",
+        "uses": "奶茶、咖啡伴侣、饼干",
+        "aliases": [
+          "奶精",
+          "咖啡伴侣"
+        ]
+      },
+      "review": {
+        "status": "ai_reviewed_identity_and_common_uses",
+        "changes": [],
+        "excluded_lookup_aliases": {},
+        "caution_display": "withheld_no_source_column",
+        "evidence_status": "not_provided"
+      }
+    },
+    {
+      "row": 159,
+      "name": "氢化植物油",
+      "original": {
+        "序号": "158",
+        "配料名称": "氢化植物油",
+        "别名/规范名": "氢化油/部分氢化植物油",
+        "分类": "需注意成分",
+        "功能类别": "油脂",
+        "通俗解释": "经过氢化处理的植物油，可能带来反式脂肪酸。",
+        "常见用途（哪些食品里常见）": "饼干、派、咖啡伴侣",
+        "注意事项（谁要注意）": "",
+        "化学信息": "",
+        "依据": ""
+      },
+      "cleaned": {
+        "id": 158,
+        "name": "氢化植物油",
+        "entity_type": "ingredient",
+        "category": "需注意成分",
+        "role": "油脂",
+        "what": "经过氢化处理的植物油，可能带来反式脂肪酸。",
+        "uses": "饼干、派、咖啡伴侣",
+        "aliases": [
+          "氢化油",
+          "部分氢化植物油"
+        ]
+      },
+      "review": {
+        "status": "ai_reviewed_identity_and_common_uses",
+        "changes": [],
+        "excluded_lookup_aliases": {},
+        "caution_display": "withheld_no_source_column",
+        "evidence_status": "not_provided"
+      }
+    },
+    {
+      "row": 160,
+      "name": "代可可脂",
+      "original": {
+        "序号": "159",
+        "配料名称": "代可可脂",
+        "别名/规范名": "",
+        "分类": "需注意成分",
+        "功能类别": "油脂",
+        "通俗解释": "替代可可脂的植物油脂，成本和口感都和可可脂不同。",
+        "常见用途（哪些食品里常见）": "巧克力、涂层饼干、雪糕",
+        "注意事项（谁要注意）": "",
+        "化学信息": "",
+        "依据": ""
+      },
+      "cleaned": {
+        "id": 159,
+        "name": "代可可脂",
+        "entity_type": "ingredient",
+        "category": "需注意成分",
+        "role": "油脂",
+        "what": "替代可可脂的植物油脂，成本和口感都和可可脂不同。",
+        "uses": "巧克力、涂层饼干、雪糕",
+        "aliases": []
+      },
+      "review": {
+        "status": "ai_reviewed_identity_and_common_uses",
+        "changes": [],
+        "excluded_lookup_aliases": {},
+        "caution_display": "withheld_no_source_column",
+        "evidence_status": "not_provided"
+      }
+    },
+    {
+      "row": 161,
+      "name": "芝麻油",
+      "original": {
+        "序号": "160",
+        "配料名称": "芝麻油",
+        "别名/规范名": "香油/麻油",
+        "分类": "基础食材",
+        "功能类别": "油脂",
+        "通俗解释": "芝麻榨的油，香味浓。",
+        "常见用途（哪些食品里常见）": "凉拌、调味、糕点",
+        "注意事项（谁要注意）": "",
+        "化学信息": "",
+        "依据": ""
+      },
+      "cleaned": {
+        "id": 160,
+        "name": "芝麻油",
+        "entity_type": "ingredient",
+        "category": "基础食材",
+        "role": "油脂",
+        "what": "芝麻榨的油，香味浓。",
+        "uses": "凉拌、调味、糕点",
+        "aliases": [
+          "香油",
+          "麻油"
+        ]
+      },
+      "review": {
+        "status": "ai_reviewed_identity_and_common_uses",
+        "changes": [],
+        "excluded_lookup_aliases": {},
+        "caution_display": "withheld_no_source_column",
+        "evidence_status": "not_provided"
+      }
+    },
+    {
+      "row": 162,
+      "name": "牛油",
+      "original": {
+        "序号": "161",
+        "配料名称": "牛油",
+        "别名/规范名": "牛脂肪",
+        "分类": "基础配料",
+        "功能类别": "油脂",
+        "通俗解释": "牛脂肪提炼的油，香味重。",
+        "常见用途（哪些食品里常见）": "火锅底料、糕点、油炸",
+        "注意事项（谁要注意）": "",
+        "化学信息": "",
+        "依据": ""
+      },
+      "cleaned": {
+        "id": 161,
+        "name": "牛油",
+        "entity_type": "ingredient",
+        "category": "基础配料",
+        "role": "油脂",
+        "what": "牛脂肪提炼的油，香味重。",
+        "uses": "火锅底料、糕点、油炸",
+        "aliases": [
+          "牛脂肪"
+        ]
+      },
+      "review": {
+        "status": "ai_reviewed_identity_and_common_uses",
+        "changes": [],
+        "excluded_lookup_aliases": {},
+        "caution_display": "withheld_no_source_column",
+        "evidence_status": "not_provided"
+      }
+    },
+    {
+      "row": 163,
+      "name": "猪油",
+      "original": {
+        "序号": "162",
+        "配料名称": "猪油",
+        "别名/规范名": "猪大油",
+        "分类": "基础配料",
+        "功能类别": "油脂",
+        "通俗解释": "猪脂肪熬出来的油。",
+        "常见用途（哪些食品里常见）": "酥皮、月饼、炒菜",
+        "注意事项（谁要注意）": "",
+        "化学信息": "",
+        "依据": ""
+      },
+      "cleaned": {
+        "id": 162,
+        "name": "猪油",
+        "entity_type": "ingredient",
+        "category": "基础配料",
+        "role": "油脂",
+        "what": "猪脂肪熬出来的油。",
+        "uses": "酥皮、月饼、炒菜",
+        "aliases": [
+          "猪大油"
+        ]
+      },
+      "review": {
+        "status": "ai_reviewed_identity_and_common_uses",
+        "changes": [],
+        "excluded_lookup_aliases": {},
+        "caution_display": "withheld_no_source_column",
+        "evidence_status": "not_provided"
+      }
+    },
+    {
+      "row": 164,
+      "name": "绵白糖",
+      "original": {
+        "序号": "163",
+        "配料名称": "绵白糖",
+        "别名/规范名": "绵糖",
+        "分类": "基础食材",
+        "功能类别": "甜味原料",
+        "通俗解释": "颗粒细、溶解快的白糖。",
+        "常见用途（哪些食品里常见）": "糕点、饮料、糖果",
+        "注意事项（谁要注意）": "",
+        "化学信息": "",
+        "依据": ""
+      },
+      "cleaned": {
+        "id": 163,
+        "name": "绵白糖",
+        "entity_type": "ingredient",
+        "category": "基础食材",
+        "role": "甜味原料",
+        "what": "颗粒细、溶解快的白糖。",
+        "uses": "糕点、饮料、糖果",
+        "aliases": [
+          "绵糖"
+        ]
+      },
+      "review": {
+        "status": "ai_reviewed_identity_and_common_uses",
+        "changes": [],
+        "excluded_lookup_aliases": {},
+        "caution_display": "withheld_no_source_column",
+        "evidence_status": "not_provided"
+      }
+    },
+    {
+      "row": 165,
+      "name": "赤砂糖",
+      "original": {
+        "序号": "164",
+        "配料名称": "赤砂糖",
+        "别名/规范名": "红糖/黄糖",
+        "分类": "基础食材",
+        "功能类别": "甜味原料",
+        "通俗解释": "带蜜的棕黄色砂糖，颜色比白糖深。",
+        "常见用途（哪些食品里常见）": "糕点、红糖馒头、调味",
+        "注意事项（谁要注意）": "",
+        "化学信息": "",
+        "依据": ""
+      },
+      "cleaned": {
+        "id": 164,
+        "name": "赤砂糖",
+        "entity_type": "ingredient",
+        "category": "基础食材",
+        "role": "甜味原料",
+        "what": "带蜜的棕黄色砂糖，颜色比白糖深。",
+        "uses": "糕点、红糖馒头、调味",
+        "aliases": [
+          "红糖",
+          "黄糖"
+        ]
+      },
+      "review": {
+        "status": "ai_reviewed_identity_and_common_uses",
+        "changes": [],
+        "excluded_lookup_aliases": {},
+        "caution_display": "withheld_no_source_column",
+        "evidence_status": "not_provided"
+      }
+    },
+    {
+      "row": 166,
+      "name": "冰糖",
+      "original": {
+        "序号": "165",
+        "配料名称": "冰糖",
+        "别名/规范名": "单晶冰糖/多晶冰糖",
+        "分类": "基础食材",
+        "功能类别": "甜味原料",
+        "通俗解释": "白砂糖重新结晶的大颗粒糖。",
+        "常见用途（哪些食品里常见）": "炖品、饮料、蜜饯",
+        "注意事项（谁要注意）": "",
+        "化学信息": "",
+        "依据": ""
+      },
+      "cleaned": {
+        "id": 165,
+        "name": "冰糖",
+        "entity_type": "ingredient",
+        "category": "基础食材",
+        "role": "甜味原料",
+        "what": "白砂糖重新结晶的大颗粒糖。",
+        "uses": "炖品、饮料、蜜饯",
+        "aliases": [
+          "单晶冰糖",
+          "多晶冰糖"
+        ]
+      },
+      "review": {
+        "status": "ai_reviewed_identity_and_common_uses",
+        "changes": [],
+        "excluded_lookup_aliases": {},
+        "caution_display": "withheld_no_source_column",
+        "evidence_status": "not_provided"
+      }
+    },
+    {
+      "row": 167,
+      "name": "海藻糖",
+      "original": {
+        "序号": "166",
+        "配料名称": "海藻糖",
+        "别名/规范名": "",
+        "分类": "食品添加剂",
+        "功能类别": "甜味剂",
+        "通俗解释": "天然存在的双糖，甜度低、保水性好。",
+        "常见用途（哪些食品里常见）": "烘焙、饮料、冷冻食品",
+        "注意事项（谁要注意）": "",
+        "化学信息": "",
+        "依据": ""
+      },
+      "cleaned": {
+        "id": 166,
+        "name": "海藻糖",
+        "entity_type": "additive",
+        "category": "食品添加剂",
+        "role": "甜味剂",
+        "what": "天然存在的双糖，甜度低、保水性好。",
+        "uses": "烘焙、饮料、冷冻食品",
+        "aliases": []
+      },
+      "review": {
+        "status": "ai_reviewed_identity_and_common_uses",
+        "changes": [],
+        "excluded_lookup_aliases": {},
+        "caution_display": "withheld_no_source_column",
+        "evidence_status": "not_provided"
+      }
+    },
+    {
+      "row": 168,
+      "name": "麦芽糖",
+      "original": {
+        "序号": "167",
+        "配料名称": "麦芽糖",
+        "别名/规范名": "饴糖",
+        "分类": "基础配料",
+        "功能类别": "甜味原料",
+        "通俗解释": "淀粉分解得到的糖，甜度低、黏性大。",
+        "常见用途（哪些食品里常见）": "糖果、糕点、烤鸭",
+        "注意事项（谁要注意）": "",
+        "化学信息": "",
+        "依据": ""
+      },
+      "cleaned": {
+        "id": 167,
+        "name": "麦芽糖",
+        "entity_type": "ingredient",
+        "category": "基础配料",
+        "role": "甜味原料",
+        "what": "淀粉分解得到的糖，甜度低、黏性大。",
+        "uses": "糖果、糕点、烤鸭",
+        "aliases": [
+          "饴糖"
+        ]
+      },
+      "review": {
+        "status": "ai_reviewed_identity_and_common_uses",
+        "changes": [],
+        "excluded_lookup_aliases": {},
+        "caution_display": "withheld_no_source_column",
+        "evidence_status": "not_provided"
+      }
+    },
+    {
+      "row": 169,
+      "name": "甜菊糖苷",
+      "original": {
+        "序号": "168",
+        "配料名称": "甜菊糖苷",
+        "别名/规范名": "甜菊糖/甜叶菊苷",
+        "分类": "食品添加剂",
+        "功能类别": "甜味剂",
+        "通俗解释": "从甜叶菊提取的天然高倍甜味剂，后味略苦。",
+        "常见用途（哪些食品里常见）": "无糖饮料、代糖",
+        "注意事项（谁要注意）": "",
+        "化学信息": "",
+        "依据": ""
+      },
+      "cleaned": {
+        "id": 168,
+        "name": "甜菊糖苷",
+        "entity_type": "additive",
+        "category": "食品添加剂",
+        "role": "甜味剂",
+        "what": "从甜叶菊提取的天然高倍甜味剂，后味略苦。",
+        "uses": "无糖饮料、代糖",
+        "aliases": [
+          "甜菊糖",
+          "甜叶菊苷"
+        ]
+      },
+      "review": {
+        "status": "ai_reviewed_identity_and_common_uses",
+        "changes": [],
+        "excluded_lookup_aliases": {},
+        "caution_display": "withheld_no_source_column",
+        "evidence_status": "not_provided"
+      }
+    },
+    {
+      "row": 170,
+      "name": "罗汉果甜苷",
+      "original": {
+        "序号": "169",
+        "配料名称": "罗汉果甜苷",
+        "别名/规范名": "罗汉果提取物",
+        "分类": "食品添加剂",
+        "功能类别": "甜味剂",
+        "通俗解释": "从罗汉果提取的天然甜味剂。",
+        "常见用途（哪些食品里常见）": "无糖饮料、代糖",
+        "注意事项（谁要注意）": "",
+        "化学信息": "",
+        "依据": ""
+      },
+      "cleaned": {
+        "id": 169,
+        "name": "罗汉果甜苷",
+        "entity_type": "additive",
+        "category": "食品添加剂",
+        "role": "甜味剂",
+        "what": "从罗汉果提取的天然甜味剂。",
+        "uses": "无糖饮料、代糖",
+        "aliases": [
+          "罗汉果提取物"
+        ]
+      },
+      "review": {
+        "status": "ai_reviewed_identity_and_common_uses",
+        "changes": [],
+        "excluded_lookup_aliases": {},
+        "caution_display": "withheld_no_source_column",
+        "evidence_status": "not_provided"
+      }
+    },
+    {
+      "row": 171,
+      "name": "低聚果糖",
+      "original": {
+        "序号": "170",
+        "配料名称": "低聚果糖",
+        "别名/规范名": "果寡糖",
+        "分类": "食品添加剂",
+        "功能类别": "甜味剂",
+        "通俗解释": "人体不消化、喂肠道菌的糖，一次吃多容易胀气。",
+        "常见用途（哪些食品里常见）": "乳制品、饮料、代糖",
+        "注意事项（谁要注意）": "",
+        "化学信息": "",
+        "依据": ""
+      },
+      "cleaned": {
+        "id": 170,
+        "name": "低聚果糖",
+        "entity_type": "additive",
+        "category": "食品添加剂",
+        "role": "甜味剂",
+        "what": "人体不消化、喂肠道菌的糖，一次吃多容易胀气。",
+        "uses": "乳制品、饮料、代糖",
+        "aliases": [
+          "果寡糖"
+        ]
+      },
+      "review": {
+        "status": "ai_reviewed_identity_and_common_uses",
+        "changes": [],
+        "excluded_lookup_aliases": {},
+        "caution_display": "withheld_no_source_column",
+        "evidence_status": "not_provided"
+      }
+    },
+    {
+      "row": 172,
+      "name": "聚葡萄糖",
+      "original": {
+        "序号": "171",
+        "配料名称": "聚葡萄糖",
+        "别名/规范名": "",
+        "分类": "食品添加剂",
+        "功能类别": "增稠剂",
+        "通俗解释": "水溶性膳食纤维，能增稠、也能替代一部分糖。",
+        "常见用途（哪些食品里常见）": "无糖食品、饮料",
+        "注意事项（谁要注意）": "",
+        "化学信息": "",
+        "依据": ""
+      },
+      "cleaned": {
+        "id": 171,
+        "name": "聚葡萄糖",
+        "entity_type": "additive",
+        "category": "食品添加剂",
+        "role": "增稠剂",
+        "what": "水溶性膳食纤维，能增稠、也能替代一部分糖。",
+        "uses": "无糖食品、饮料",
+        "aliases": []
+      },
+      "review": {
+        "status": "ai_reviewed_identity_and_common_uses",
+        "changes": [],
+        "excluded_lookup_aliases": {},
+        "caution_display": "withheld_no_source_column",
+        "evidence_status": "not_provided"
+      }
+    },
+    {
+      "row": 173,
+      "name": "乳清蛋白粉",
+      "original": {
+        "序号": "172",
+        "配料名称": "乳清蛋白粉",
+        "别名/规范名": "乳清蛋白",
+        "分类": "基础配料",
+        "功能类别": "蛋白原料",
+        "通俗解释": "从乳清里提取的蛋白质，健身食品常用。",
+        "常见用途（哪些食品里常见）": "蛋白粉、饮料、营养棒",
+        "注意事项（谁要注意）": "",
+        "化学信息": "",
+        "依据": ""
+      },
+      "cleaned": {
+        "id": 172,
+        "name": "乳清蛋白粉",
+        "entity_type": "ingredient",
+        "category": "基础配料",
+        "role": "蛋白原料",
+        "what": "从乳清里提取的蛋白质，健身食品常用。",
+        "uses": "蛋白粉、饮料、营养棒",
+        "aliases": [
+          "乳清蛋白"
+        ]
+      },
+      "review": {
+        "status": "ai_reviewed_identity_and_common_uses",
+        "changes": [],
+        "excluded_lookup_aliases": {},
+        "caution_display": "withheld_no_source_column",
+        "evidence_status": "not_provided"
+      }
+    },
+    {
+      "row": 174,
+      "name": "酪蛋白酸钠",
+      "original": {
+        "序号": "173",
+        "配料名称": "酪蛋白酸钠",
+        "别名/规范名": "",
+        "分类": "食品添加剂",
+        "功能类别": "乳化剂",
+        "通俗解释": "牛奶蛋白的钠盐，用来改善口感和稳定性。",
+        "常见用途（哪些食品里常见）": "咖啡伴侣、肉制品、冰淇淋",
+        "注意事项（谁要注意）": "",
+        "化学信息": "",
+        "依据": ""
+      },
+      "cleaned": {
+        "id": 173,
+        "name": "酪蛋白酸钠",
+        "entity_type": "additive",
+        "category": "食品添加剂",
+        "role": "乳化剂",
+        "what": "牛奶蛋白的钠盐，用来改善口感和稳定性。",
+        "uses": "咖啡伴侣、肉制品、冰淇淋",
+        "aliases": []
+      },
+      "review": {
+        "status": "ai_reviewed_identity_and_common_uses",
+        "changes": [],
+        "excluded_lookup_aliases": {},
+        "caution_display": "withheld_no_source_column",
+        "evidence_status": "not_provided"
+      }
+    },
+    {
+      "row": 175,
+      "name": "乳糖",
+      "original": {
+        "序号": "174",
+        "配料名称": "乳糖",
+        "别名/规范名": "",
+        "分类": "基础配料",
+        "功能类别": "甜味原料",
+        "通俗解释": "牛奶里天然存在的糖，乳糖不耐的人要注意。",
+        "常见用途（哪些食品里常见）": "奶粉、烘焙、药品辅料",
+        "注意事项（谁要注意）": "",
+        "化学信息": "",
+        "依据": ""
+      },
+      "cleaned": {
+        "id": 174,
+        "name": "乳糖",
+        "entity_type": "ingredient",
+        "category": "基础配料",
+        "role": "甜味原料",
+        "what": "牛奶里天然存在的糖，乳糖不耐的人要注意。",
+        "uses": "奶粉、烘焙、药品辅料",
+        "aliases": []
+      },
+      "review": {
+        "status": "ai_reviewed_identity_and_common_uses",
+        "changes": [],
+        "excluded_lookup_aliases": {},
+        "caution_display": "withheld_no_source_column",
+        "evidence_status": "not_provided"
+      }
+    },
+    {
+      "row": 176,
+      "name": "脱盐乳清粉",
+      "original": {
+        "序号": "175",
+        "配料名称": "脱盐乳清粉",
+        "别名/规范名": "",
+        "分类": "基础配料",
+        "功能类别": "蛋白原料",
+        "通俗解释": "去掉部分盐分的乳清粉，婴幼儿配方里常见。",
+        "常见用途（哪些食品里常见）": "婴幼儿奶粉、营养食品",
+        "注意事项（谁要注意）": "",
+        "化学信息": "",
+        "依据": ""
+      },
+      "cleaned": {
+        "id": 175,
+        "name": "脱盐乳清粉",
+        "entity_type": "ingredient",
+        "category": "基础配料",
+        "role": "蛋白原料",
+        "what": "去掉部分盐分的乳清粉，婴幼儿配方里常见。",
+        "uses": "婴幼儿奶粉、营养食品",
+        "aliases": []
+      },
+      "review": {
+        "status": "ai_reviewed_identity_and_common_uses",
+        "changes": [],
+        "excluded_lookup_aliases": {},
+        "caution_display": "withheld_no_source_column",
+        "evidence_status": "not_provided"
+      }
+    },
+    {
+      "row": 177,
+      "name": "大豆分离蛋白",
+      "original": {
+        "序号": "176",
+        "配料名称": "大豆分离蛋白",
+        "别名/规范名": "大豆蛋白",
+        "分类": "基础配料",
+        "功能类别": "蛋白原料",
+        "通俗解释": "从大豆提取的高纯度蛋白。",
+        "常见用途（哪些食品里常见）": "素肉、火腿肠、饮料",
+        "注意事项（谁要注意）": "",
+        "化学信息": "",
+        "依据": ""
+      },
+      "cleaned": {
+        "id": 176,
+        "name": "大豆分离蛋白",
+        "entity_type": "ingredient",
+        "category": "基础配料",
+        "role": "蛋白原料",
+        "what": "从大豆提取的高纯度蛋白。",
+        "uses": "素肉、火腿肠、饮料",
+        "aliases": [
+          "大豆蛋白"
+        ]
+      },
+      "review": {
+        "status": "ai_reviewed_identity_and_common_uses",
+        "changes": [],
+        "excluded_lookup_aliases": {},
+        "caution_display": "withheld_no_source_column",
+        "evidence_status": "not_provided"
+      }
+    },
+    {
+      "row": 178,
+      "name": "鸡蛋粉",
+      "original": {
+        "序号": "177",
+        "配料名称": "鸡蛋粉",
+        "别名/规范名": "全蛋粉/蛋黄粉",
+        "分类": "基础配料",
+        "功能类别": "蛋白原料",
+        "通俗解释": "鸡蛋干燥制成的粉。",
+        "常见用途（哪些食品里常见）": "糕点、面条、调味料",
+        "注意事项（谁要注意）": "",
+        "化学信息": "",
+        "依据": ""
+      },
+      "cleaned": {
+        "id": 177,
+        "name": "鸡蛋粉",
+        "entity_type": "ingredient",
+        "category": "基础配料",
+        "role": "蛋白原料",
+        "what": "鸡蛋干燥制成的粉。",
+        "uses": "糕点、面条、调味料",
+        "aliases": [
+          "全蛋粉",
+          "蛋黄粉"
+        ]
+      },
+      "review": {
+        "status": "ai_reviewed_identity_and_common_uses",
+        "changes": [],
+        "excluded_lookup_aliases": {},
+        "caution_display": "withheld_no_source_column",
+        "evidence_status": "not_provided"
+      }
+    },
+    {
+      "row": 179,
+      "name": "呈味核苷酸二钠",
+      "original": {
+        "序号": "178",
+        "配料名称": "呈味核苷酸二钠",
+        "别名/规范名": "I+G",
+        "分类": "食品添加剂",
+        "功能类别": "增味剂",
+        "通俗解释": "和味精一起用能大幅提鲜的核苷酸类增味剂。",
+        "常见用途（哪些食品里常见）": "方便面、调味料、鸡精",
+        "注意事项（谁要注意）": "",
+        "化学信息": "",
+        "依据": ""
+      },
+      "cleaned": {
+        "id": 178,
+        "name": "呈味核苷酸二钠",
+        "entity_type": "additive",
+        "category": "食品添加剂",
+        "role": "增味剂",
+        "what": "和味精一起用能大幅提鲜的核苷酸类增味剂。",
+        "uses": "方便面、调味料、鸡精",
+        "aliases": [
+          "I+G"
+        ]
+      },
+      "review": {
+        "status": "ai_reviewed_identity_and_common_uses",
+        "changes": [],
+        "excluded_lookup_aliases": {},
+        "caution_display": "withheld_no_source_column",
+        "evidence_status": "not_provided"
+      }
+    },
+    {
+      "row": 180,
+      "name": "酵母提取物",
+      "original": {
+        "序号": "179",
+        "配料名称": "酵母提取物",
+        "别名/规范名": "酵母抽提物",
+        "分类": "食品添加剂",
+        "功能类别": "增味剂",
+        "通俗解释": "酵母自溶得到的鲜味物质，常用来替代部分味精。",
+        "常见用途（哪些食品里常见）": "调味料、方便面、酱料",
+        "注意事项（谁要注意）": "",
+        "化学信息": "",
+        "依据": ""
+      },
+      "cleaned": {
+        "id": 179,
+        "name": "酵母提取物",
+        "entity_type": "additive",
+        "category": "食品添加剂",
+        "role": "增味剂",
+        "what": "酵母自溶得到的鲜味物质，常用来替代部分味精。",
+        "uses": "调味料、方便面、酱料",
+        "aliases": [
+          "酵母抽提物"
+        ]
+      },
+      "review": {
+        "status": "ai_reviewed_identity_and_common_uses",
+        "changes": [],
+        "excluded_lookup_aliases": {},
+        "caution_display": "withheld_no_source_column",
+        "evidence_status": "not_provided"
+      }
+    },
+    {
+      "row": 181,
+      "name": "水解植物蛋白",
+      "original": {
+        "序号": "180",
+        "配料名称": "水解植物蛋白",
+        "别名/规范名": "HVP",
+        "分类": "食品添加剂",
+        "功能类别": "增味剂",
+        "通俗解释": "植物蛋白水解后得到的鲜味料。",
+        "常见用途（哪些食品里常见）": "调味料、酱油、汤料",
+        "注意事项（谁要注意）": "",
+        "化学信息": "",
+        "依据": ""
+      },
+      "cleaned": {
+        "id": 180,
+        "name": "水解植物蛋白",
+        "entity_type": "additive",
+        "category": "食品添加剂",
+        "role": "增味剂",
+        "what": "植物蛋白水解后得到的鲜味料。",
+        "uses": "调味料、酱油、汤料",
+        "aliases": [
+          "HVP"
+        ]
+      },
+      "review": {
+        "status": "ai_reviewed_identity_and_common_uses",
+        "changes": [],
+        "excluded_lookup_aliases": {},
+        "caution_display": "withheld_no_source_column",
+        "evidence_status": "not_provided"
+      }
+    },
+    {
+      "row": 182,
+      "name": "鸡精",
+      "original": {
+        "序号": "181",
+        "配料名称": "鸡精",
+        "别名/规范名": "鸡粉/鸡精调味料",
+        "分类": "基础配料",
+        "功能类别": "调味料",
+        "通俗解释": "味精、盐、鸡肉粉等复配成的调味料。",
+        "常见用途（哪些食品里常见）": "炒菜、汤、火锅",
+        "注意事项（谁要注意）": "",
+        "化学信息": "",
+        "依据": ""
+      },
+      "cleaned": {
+        "id": 181,
+        "name": "鸡精",
+        "entity_type": "ingredient",
+        "category": "基础配料",
+        "role": "调味料",
+        "what": "味精、盐、鸡肉粉等复配成的调味料。",
+        "uses": "炒菜、汤、火锅",
+        "aliases": [
+          "鸡粉",
+          "鸡精调味料"
+        ]
+      },
+      "review": {
+        "status": "ai_reviewed_identity_and_common_uses",
+        "changes": [],
+        "excluded_lookup_aliases": {},
+        "caution_display": "withheld_no_source_column",
+        "evidence_status": "not_provided"
+      }
+    },
+    {
+      "row": 183,
+      "name": "蚝油",
+      "original": {
+        "序号": "182",
+        "配料名称": "蚝油",
+        "别名/规范名": "",
+        "分类": "基础配料",
+        "功能类别": "调味料",
+        "通俗解释": "用牡蛎煮汁浓缩成的调味酱。",
+        "常见用途（哪些食品里常见）": "炒菜、蘸料、腌制",
+        "注意事项（谁要注意）": "",
+        "化学信息": "",
+        "依据": ""
+      },
+      "cleaned": {
+        "id": 182,
+        "name": "蚝油",
+        "entity_type": "ingredient",
+        "category": "基础配料",
+        "role": "调味料",
+        "what": "用牡蛎煮汁浓缩成的调味酱。",
+        "uses": "炒菜、蘸料、腌制",
+        "aliases": []
+      },
+      "review": {
+        "status": "ai_reviewed_identity_and_common_uses",
+        "changes": [],
+        "excluded_lookup_aliases": {},
+        "caution_display": "withheld_no_source_column",
+        "evidence_status": "not_provided"
+      }
+    },
+    {
+      "row": 184,
+      "name": "料酒",
+      "original": {
+        "序号": "183",
+        "配料名称": "料酒",
+        "别名/规范名": "烹饪料酒",
+        "分类": "基础配料",
+        "功能类别": "调味料",
+        "通俗解释": "黄酒加香辛料配成的烹饪用酒。",
+        "常见用途（哪些食品里常见）": "去腥、腌制、炒菜",
+        "注意事项（谁要注意）": "",
+        "化学信息": "",
+        "依据": ""
+      },
+      "cleaned": {
+        "id": 183,
+        "name": "料酒",
+        "entity_type": "ingredient",
+        "category": "基础配料",
+        "role": "调味料",
+        "what": "黄酒加香辛料配成的烹饪用酒。",
+        "uses": "去腥、腌制、炒菜",
+        "aliases": [
+          "烹饪料酒"
+        ]
+      },
+      "review": {
+        "status": "ai_reviewed_identity_and_common_uses",
+        "changes": [],
+        "excluded_lookup_aliases": {},
+        "caution_display": "withheld_no_source_column",
+        "evidence_status": "not_provided"
+      }
+    },
+    {
+      "row": 185,
+      "name": "辣椒粉",
+      "original": {
+        "序号": "184",
+        "配料名称": "辣椒粉",
+        "别名/规范名": "辣椒面",
+        "分类": "基础配料",
+        "功能类别": "香辛料",
+        "通俗解释": "干辣椒磨成的粉。",
+        "常见用途（哪些食品里常见）": "辣条、火锅、烧烤",
+        "注意事项（谁要注意）": "",
+        "化学信息": "",
+        "依据": ""
+      },
+      "cleaned": {
+        "id": 184,
+        "name": "辣椒粉",
+        "entity_type": "ingredient",
+        "category": "基础配料",
+        "role": "香辛料",
+        "what": "干辣椒磨成的粉。",
+        "uses": "辣条、火锅、烧烤",
+        "aliases": [
+          "辣椒面"
+        ]
+      },
+      "review": {
+        "status": "ai_reviewed_identity_and_common_uses",
+        "changes": [],
+        "excluded_lookup_aliases": {},
+        "caution_display": "withheld_no_source_column",
+        "evidence_status": "not_provided"
+      }
+    },
+    {
+      "row": 186,
+      "name": "花椒粉",
+      "original": {
+        "序号": "185",
+        "配料名称": "花椒粉",
+        "别名/规范名": "",
+        "分类": "基础配料",
+        "功能类别": "香辛料",
+        "通俗解释": "花椒磨成的粉，麻味来源。",
+        "常见用途（哪些食品里常见）": "川菜、火锅、卤味",
+        "注意事项（谁要注意）": "",
+        "化学信息": "",
+        "依据": ""
+      },
+      "cleaned": {
+        "id": 185,
+        "name": "花椒粉",
+        "entity_type": "ingredient",
+        "category": "基础配料",
+        "role": "香辛料",
+        "what": "花椒磨成的粉，麻味来源。",
+        "uses": "川菜、火锅、卤味",
+        "aliases": []
+      },
+      "review": {
+        "status": "ai_reviewed_identity_and_common_uses",
+        "changes": [],
+        "excluded_lookup_aliases": {},
+        "caution_display": "withheld_no_source_column",
+        "evidence_status": "not_provided"
+      }
+    },
+    {
+      "row": 187,
+      "name": "五香粉",
+      "original": {
+        "序号": "186",
+        "配料名称": "五香粉",
+        "别名/规范名": "",
+        "分类": "基础配料",
+        "功能类别": "香辛料",
+        "通俗解释": "八角、桂皮等多种香料混合磨成的粉。",
+        "常见用途（哪些食品里常见）": "卤味、腌肉、调味",
+        "注意事项（谁要注意）": "",
+        "化学信息": "",
+        "依据": ""
+      },
+      "cleaned": {
+        "id": 186,
+        "name": "五香粉",
+        "entity_type": "ingredient",
+        "category": "基础配料",
+        "role": "香辛料",
+        "what": "八角、桂皮等多种香料混合磨成的粉。",
+        "uses": "卤味、腌肉、调味",
+        "aliases": []
+      },
+      "review": {
+        "status": "ai_reviewed_identity_and_common_uses",
+        "changes": [],
+        "excluded_lookup_aliases": {},
+        "caution_display": "withheld_no_source_column",
+        "evidence_status": "not_provided"
+      }
+    },
+    {
+      "row": 188,
+      "name": "白胡椒粉",
+      "original": {
+        "序号": "187",
+        "配料名称": "白胡椒粉",
+        "别名/规范名": "胡椒",
+        "分类": "基础配料",
+        "功能类别": "香辛料",
+        "通俗解释": "白胡椒磨成的粉，辣味比黑胡椒温和。",
+        "常见用途（哪些食品里常见）": "汤、馅料、炒菜",
+        "注意事项（谁要注意）": "",
+        "化学信息": "",
+        "依据": ""
+      },
+      "cleaned": {
+        "id": 187,
+        "name": "白胡椒粉",
+        "entity_type": "ingredient",
+        "category": "基础配料",
+        "role": "香辛料",
+        "what": "白胡椒磨成的粉，辣味比黑胡椒温和。",
+        "uses": "汤、馅料、炒菜",
+        "aliases": [
+          "胡椒"
+        ]
+      },
+      "review": {
+        "status": "ai_reviewed_identity_and_common_uses",
+        "changes": [],
+        "excluded_lookup_aliases": {},
+        "caution_display": "withheld_no_source_column",
+        "evidence_status": "not_provided"
+      }
+    },
+    {
+      "row": 189,
+      "name": "咖喱粉",
+      "original": {
+        "序号": "188",
+        "配料名称": "咖喱粉",
+        "别名/规范名": "",
+        "分类": "基础配料",
+        "功能类别": "香辛料",
+        "通俗解释": "姜黄、孜然等多种香料配成的黄色调味粉。",
+        "常见用途（哪些食品里常见）": "咖喱菜、调味",
+        "注意事项（谁要注意）": "",
+        "化学信息": "",
+        "依据": ""
+      },
+      "cleaned": {
+        "id": 188,
+        "name": "咖喱粉",
+        "entity_type": "ingredient",
+        "category": "基础配料",
+        "role": "香辛料",
+        "what": "姜黄、孜然等多种香料配成的黄色调味粉。",
+        "uses": "咖喱菜、调味",
+        "aliases": []
+      },
+      "review": {
+        "status": "ai_reviewed_identity_and_common_uses",
+        "changes": [],
+        "excluded_lookup_aliases": {},
+        "caution_display": "withheld_no_source_column",
+        "evidence_status": "not_provided"
+      }
+    },
+    {
+      "row": 190,
+      "name": "二氧化硅",
+      "original": {
+        "序号": "189",
+        "配料名称": "二氧化硅",
+        "别名/规范名": "",
+        "分类": "食品添加剂",
+        "功能类别": "抗结剂",
+        "通俗解释": "防止粉末结块的白色粉末。",
+        "常见用途（哪些食品里常见）": "粉状调味料、奶粉",
+        "注意事项（谁要注意）": "",
+        "化学信息": "",
+        "依据": ""
+      },
+      "cleaned": {
+        "id": 189,
+        "name": "二氧化硅",
+        "entity_type": "additive",
+        "category": "食品添加剂",
+        "role": "抗结剂",
+        "what": "防止粉末结块的白色粉末。",
+        "uses": "粉状调味料、奶粉",
+        "aliases": []
+      },
+      "review": {
+        "status": "ai_reviewed_identity_and_common_uses",
+        "changes": [],
+        "excluded_lookup_aliases": {},
+        "caution_display": "withheld_no_source_column",
+        "evidence_status": "not_provided"
+      }
+    },
+    {
+      "row": 191,
+      "name": "磷酸二氢钙",
+      "original": {
+        "序号": "190",
+        "配料名称": "磷酸二氢钙",
+        "别名/规范名": "",
+        "分类": "食品添加剂",
+        "功能类别": "膨松剂",
+        "通俗解释": "酸性膨松剂，同时提供钙。",
+        "常见用途（哪些食品里常见）": "泡打粉、面粉、饼干",
+        "注意事项（谁要注意）": "",
+        "化学信息": "",
+        "依据": ""
+      },
+      "cleaned": {
+        "id": 190,
+        "name": "磷酸二氢钙",
+        "entity_type": "additive",
+        "category": "食品添加剂",
+        "role": "膨松剂",
+        "what": "酸性膨松剂，同时提供钙。",
+        "uses": "泡打粉、面粉、饼干",
+        "aliases": []
+      },
+      "review": {
+        "status": "ai_reviewed_identity_and_common_uses",
+        "changes": [],
+        "excluded_lookup_aliases": {},
+        "caution_display": "withheld_no_source_column",
+        "evidence_status": "not_provided"
+      }
+    },
+    {
+      "row": 192,
+      "name": "焦磷酸二氢二钠",
+      "original": {
+        "序号": "191",
+        "配料名称": "焦磷酸二氢二钠",
+        "别名/规范名": "",
+        "分类": "食品添加剂",
+        "功能类别": "膨松剂",
+        "通俗解释": "遇水就起反应的快速膨松剂。",
+        "常见用途（哪些食品里常见）": "泡打粉、蛋糕、油条",
+        "注意事项（谁要注意）": "",
+        "化学信息": "",
+        "依据": ""
+      },
+      "cleaned": {
+        "id": 191,
+        "name": "焦磷酸二氢二钠",
+        "entity_type": "additive",
+        "category": "食品添加剂",
+        "role": "膨松剂",
+        "what": "遇水就起反应的快速膨松剂。",
+        "uses": "泡打粉、蛋糕、油条",
+        "aliases": []
+      },
+      "review": {
+        "status": "ai_reviewed_identity_and_common_uses",
+        "changes": [],
+        "excluded_lookup_aliases": {},
+        "caution_display": "withheld_no_source_column",
+        "evidence_status": "not_provided"
+      }
+    },
+    {
+      "row": 193,
+      "name": "碳酸钾",
+      "original": {
+        "序号": "192",
+        "配料名称": "碳酸钾",
+        "别名/规范名": "",
+        "分类": "食品添加剂",
+        "功能类别": "酸度调节剂",
+        "通俗解释": "碱性盐，用来调节酸碱度、增加筋道。",
+        "常见用途（哪些食品里常见）": "面条、饺子皮、可可粉",
+        "注意事项（谁要注意）": "",
+        "化学信息": "",
+        "依据": ""
+      },
+      "cleaned": {
+        "id": 192,
+        "name": "碳酸钾",
+        "entity_type": "additive",
+        "category": "食品添加剂",
+        "role": "酸度调节剂",
+        "what": "碱性盐，用来调节酸碱度、增加筋道。",
+        "uses": "面条、饺子皮、可可粉",
+        "aliases": []
+      },
+      "review": {
+        "status": "ai_reviewed_identity_and_common_uses",
+        "changes": [],
+        "excluded_lookup_aliases": {},
+        "caution_display": "withheld_no_source_column",
+        "evidence_status": "not_provided"
+      }
+    },
+    {
+      "row": 194,
+      "name": "碳酸钠",
+      "original": {
+        "序号": "193",
+        "配料名称": "碳酸钠",
+        "别名/规范名": "食用碱/纯碱",
+        "分类": "食品添加剂",
+        "功能类别": "酸度调节剂",
+        "通俗解释": "食用碱，让面条更筋道。",
+        "常见用途（哪些食品里常见）": "面条、馒头、皮蛋",
+        "注意事项（谁要注意）": "",
+        "化学信息": "",
+        "依据": ""
+      },
+      "cleaned": {
+        "id": 193,
+        "name": "碳酸钠",
+        "entity_type": "additive",
+        "category": "食品添加剂",
+        "role": "酸度调节剂",
+        "what": "食用碱，让面条更筋道。",
+        "uses": "面条、馒头、皮蛋",
+        "aliases": [
+          "食用碱",
+          "纯碱"
+        ]
+      },
+      "review": {
+        "status": "ai_reviewed_identity_and_common_uses",
+        "changes": [],
+        "excluded_lookup_aliases": {},
+        "caution_display": "withheld_no_source_column",
+        "evidence_status": "not_provided"
+      }
+    },
+    {
+      "row": 195,
+      "name": "乳酸钙",
+      "original": {
+        "序号": "194",
+        "配料名称": "乳酸钙",
+        "别名/规范名": "",
+        "分类": "食品添加剂",
+        "功能类别": "稳定剂",
+        "通俗解释": "乳酸与钙形成的盐，可补钙、稳定质地。",
+        "常见用途（哪些食品里常见）": "饮料、乳制品、果冻",
+        "注意事项（谁要注意）": "",
+        "化学信息": "",
+        "依据": ""
+      },
+      "cleaned": {
+        "id": 194,
+        "name": "乳酸钙",
+        "entity_type": "additive",
+        "category": "食品添加剂",
+        "role": "稳定剂",
+        "what": "乳酸与钙形成的盐，可补钙、稳定质地。",
+        "uses": "饮料、乳制品、果冻",
+        "aliases": []
+      },
+      "review": {
+        "status": "ai_reviewed_identity_and_common_uses",
+        "changes": [],
+        "excluded_lookup_aliases": {},
+        "caution_display": "withheld_no_source_column",
+        "evidence_status": "not_provided"
+      }
+    },
+    {
+      "row": 196,
+      "name": "抗坏血酸钠",
+      "original": {
+        "序号": "195",
+        "配料名称": "抗坏血酸钠",
+        "别名/规范名": "",
+        "分类": "食品添加剂",
+        "功能类别": "抗氧化剂",
+        "通俗解释": "维生素C的钠盐，防氧化、护色。",
+        "常见用途（哪些食品里常见）": "肉制品、罐头、饮料",
+        "注意事项（谁要注意）": "",
+        "化学信息": "",
+        "依据": ""
+      },
+      "cleaned": {
+        "id": 195,
+        "name": "抗坏血酸钠",
+        "entity_type": "additive",
+        "category": "食品添加剂",
+        "role": "抗氧化剂",
+        "what": "维生素C的钠盐，防氧化、护色。",
+        "uses": "肉制品、罐头、饮料",
+        "aliases": []
+      },
+      "review": {
+        "status": "ai_reviewed_identity_and_common_uses",
+        "changes": [],
+        "excluded_lookup_aliases": {},
+        "caution_display": "withheld_no_source_column",
+        "evidence_status": "not_provided"
+      }
+    },
+    {
+      "row": 197,
+      "name": "茶多酚",
+      "original": {
+        "序号": "196",
+        "配料名称": "茶多酚",
+        "别名/规范名": "茶叶提取物",
+        "分类": "食品添加剂",
+        "功能类别": "抗氧化剂",
+        "通俗解释": "茶叶提取的抗氧化成分。",
+        "常见用途（哪些食品里常见）": "油脂、肉制品、饮料",
+        "注意事项（谁要注意）": "",
+        "化学信息": "",
+        "依据": ""
+      },
+      "cleaned": {
+        "id": 196,
+        "name": "茶多酚",
+        "entity_type": "additive",
+        "category": "食品添加剂",
+        "role": "抗氧化剂",
+        "what": "茶叶提取的抗氧化成分。",
+        "uses": "油脂、肉制品、饮料",
+        "aliases": [
+          "茶叶提取物"
+        ]
+      },
+      "review": {
+        "status": "ai_reviewed_identity_and_common_uses",
+        "changes": [],
+        "excluded_lookup_aliases": {},
+        "caution_display": "withheld_no_source_column",
+        "evidence_status": "not_provided"
+      }
+    },
+    {
+      "row": 198,
+      "name": "番茄红素",
+      "original": {
+        "序号": "197",
+        "配料名称": "番茄红素",
+        "别名/规范名": "",
+        "分类": "食品添加剂",
+        "功能类别": "着色剂",
+        "通俗解释": "番茄里的红色素，油溶性。",
+        "常见用途（哪些食品里常见）": "饮料、酱料、糖果",
+        "注意事项（谁要注意）": "",
+        "化学信息": "",
+        "依据": ""
+      },
+      "cleaned": {
+        "id": 197,
+        "name": "番茄红素",
+        "entity_type": "additive",
+        "category": "食品添加剂",
+        "role": "着色剂",
+        "what": "番茄里的红色素，油溶性。",
+        "uses": "饮料、酱料、糖果",
+        "aliases": []
+      },
+      "review": {
+        "status": "ai_reviewed_identity_and_common_uses",
+        "changes": [],
+        "excluded_lookup_aliases": {},
+        "caution_display": "withheld_no_source_column",
+        "evidence_status": "not_provided"
+      }
+    },
+    {
+      "row": 199,
+      "name": "辣椒红",
+      "original": {
+        "序号": "198",
+        "配料名称": "辣椒红",
+        "别名/规范名": "辣椒红素",
+        "分类": "食品添加剂",
+        "功能类别": "着色剂",
+        "通俗解释": "从辣椒提取的天然红色素。",
+        "常见用途（哪些食品里常见）": "辣条、肉制品、调味酱",
+        "注意事项（谁要注意）": "",
+        "化学信息": "",
+        "依据": ""
+      },
+      "cleaned": {
+        "id": 198,
+        "name": "辣椒红",
+        "entity_type": "additive",
+        "category": "食品添加剂",
+        "role": "着色剂",
+        "what": "从辣椒提取的天然红色素。",
+        "uses": "辣条、肉制品、调味酱",
+        "aliases": [
+          "辣椒红素"
+        ]
+      },
+      "review": {
+        "status": "ai_reviewed_identity_and_common_uses",
+        "changes": [],
+        "excluded_lookup_aliases": {},
+        "caution_display": "withheld_no_source_column",
+        "evidence_status": "not_provided"
+      }
+    },
+    {
+      "row": 200,
+      "name": "甜菜红",
+      "original": {
+        "序号": "199",
+        "配料名称": "甜菜红",
+        "别名/规范名": "",
+        "分类": "食品添加剂",
+        "功能类别": "着色剂",
+        "通俗解释": "甜菜根提取的红色素，怕热。",
+        "常见用途（哪些食品里常见）": "饮料、糖果、冰淇淋",
+        "注意事项（谁要注意）": "",
+        "化学信息": "",
+        "依据": ""
+      },
+      "cleaned": {
+        "id": 199,
+        "name": "甜菜红",
+        "entity_type": "additive",
+        "category": "食品添加剂",
+        "role": "着色剂",
+        "what": "甜菜根提取的红色素，怕热。",
+        "uses": "饮料、糖果、冰淇淋",
+        "aliases": []
+      },
+      "review": {
+        "status": "ai_reviewed_identity_and_common_uses",
+        "changes": [],
+        "excluded_lookup_aliases": {},
+        "caution_display": "withheld_no_source_column",
+        "evidence_status": "not_provided"
+      }
+    },
+    {
+      "row": 201,
+      "name": "栀子黄",
+      "original": {
+        "序号": "200",
+        "配料名称": "栀子黄",
+        "别名/规范名": "",
+        "分类": "食品添加剂",
+        "功能类别": "着色剂",
+        "通俗解释": "栀子果实提取的黄色素。",
+        "常见用途（哪些食品里常见）": "面制品、饮料、糖果",
+        "注意事项（谁要注意）": "",
+        "化学信息": "",
+        "依据": ""
+      },
+      "cleaned": {
+        "id": 200,
+        "name": "栀子黄",
+        "entity_type": "additive",
+        "category": "食品添加剂",
+        "role": "着色剂",
+        "what": "栀子果实提取的黄色素。",
+        "uses": "面制品、饮料、糖果",
+        "aliases": []
+      },
+      "review": {
+        "status": "ai_reviewed_identity_and_common_uses",
+        "changes": [],
+        "excluded_lookup_aliases": {},
+        "caution_display": "withheld_no_source_column",
+        "evidence_status": "not_provided"
+      }
+    },
+    {
+      "row": 202,
+      "name": "叶黄素",
+      "original": {
+        "序号": "201",
+        "配料名称": "叶黄素",
+        "别名/规范名": "",
+        "分类": "食品添加剂",
+        "功能类别": "着色剂",
+        "通俗解释": "万寿菊提取的黄色素，也用于护眼营养品。",
+        "常见用途（哪些食品里常见）": "饮料、糖果、营养食品",
+        "注意事项（谁要注意）": "",
+        "化学信息": "",
+        "依据": ""
+      },
+      "cleaned": {
+        "id": 201,
+        "name": "叶黄素",
+        "entity_type": "additive",
+        "category": "食品添加剂",
+        "role": "着色剂",
+        "what": "万寿菊提取的黄色素，也用于护眼营养品。",
+        "uses": "饮料、糖果、营养食品",
+        "aliases": []
+      },
+      "review": {
+        "status": "ai_reviewed_identity_and_common_uses",
+        "changes": [],
+        "excluded_lookup_aliases": {},
+        "caution_display": "withheld_no_source_column",
+        "evidence_status": "not_provided"
+      }
+    },
+    {
+      "row": 203,
+      "name": "氯化钾",
+      "original": {
+        "序号": "202",
+        "配料名称": "氯化钾",
+        "别名/规范名": "",
+        "分类": "食品添加剂",
+        "功能类别": "稳定剂",
+        "通俗解释": "钾盐，低钠盐里用来替代一部分氯化钠。",
+        "常见用途（哪些食品里常见）": "低钠盐、运动饮料、调味料",
+        "注意事项（谁要注意）": "",
+        "化学信息": "",
+        "依据": ""
+      },
+      "cleaned": {
+        "id": 202,
+        "name": "氯化钾",
+        "entity_type": "additive",
+        "category": "食品添加剂",
+        "role": "稳定剂",
+        "what": "钾盐，低钠盐里用来替代一部分氯化钠。",
+        "uses": "低钠盐、运动饮料、调味料",
+        "aliases": []
+      },
+      "review": {
+        "status": "ai_reviewed_identity_and_common_uses",
+        "changes": [],
+        "excluded_lookup_aliases": {},
+        "caution_display": "withheld_no_source_column",
+        "evidence_status": "not_provided"
+      }
+    },
+    {
+      "row": 204,
+      "name": "硬脂酰乳酸钠",
+      "original": {
+        "序号": "203",
+        "配料名称": "硬脂酰乳酸钠",
+        "别名/规范名": "SSL",
+        "分类": "食品添加剂",
+        "功能类别": "乳化剂",
+        "通俗解释": "面包改良剂，让面团更柔软。",
+        "常见用途（哪些食品里常见）": "面包、馒头、饼干",
+        "注意事项（谁要注意）": "",
+        "化学信息": "",
+        "依据": ""
+      },
+      "cleaned": {
+        "id": 203,
+        "name": "硬脂酰乳酸钠",
+        "entity_type": "additive",
+        "category": "食品添加剂",
+        "role": "乳化剂",
+        "what": "面包改良剂，让面团更柔软。",
+        "uses": "面包、馒头、饼干",
+        "aliases": [
+          "SSL"
+        ]
+      },
+      "review": {
+        "status": "ai_reviewed_identity_and_common_uses",
+        "changes": [],
+        "excluded_lookup_aliases": {},
+        "caution_display": "withheld_no_source_column",
+        "evidence_status": "not_provided"
+      }
+    },
+    {
+      "row": 205,
+      "name": "双乙酰酒石酸单双甘油酯",
+      "original": {
+        "序号": "204",
+        "配料名称": "双乙酰酒石酸单双甘油酯",
+        "别名/规范名": "DATEM",
+        "分类": "食品添加剂",
+        "功能类别": "乳化剂",
+        "通俗解释": "烘焙用乳化剂，改善面筋结构。",
+        "常见用途（哪些食品里常见）": "面包、蛋糕、饼干",
+        "注意事项（谁要注意）": "",
+        "化学信息": "",
+        "依据": ""
+      },
+      "cleaned": {
+        "id": 204,
+        "name": "双乙酰酒石酸单双甘油酯",
+        "entity_type": "additive",
+        "category": "食品添加剂",
+        "role": "乳化剂",
+        "what": "烘焙用乳化剂，改善面筋结构。",
+        "uses": "面包、蛋糕、饼干",
+        "aliases": [
+          "DATEM"
+        ]
+      },
+      "review": {
+        "status": "ai_reviewed_identity_and_common_uses",
+        "changes": [],
+        "excluded_lookup_aliases": {},
+        "caution_display": "withheld_no_source_column",
+        "evidence_status": "not_provided"
+      }
+    },
+    {
+      "row": 206,
+      "name": "辛烯基琥珀酸淀粉钠",
+      "original": {
+        "序号": "205",
+        "配料名称": "辛烯基琥珀酸淀粉钠",
+        "别名/规范名": "",
+        "分类": "食品添加剂",
+        "功能类别": "增稠剂",
+        "通俗解释": "能包住油滴的变性淀粉，常用来做乳化香精。",
+        "常见用途（哪些食品里常见）": "饮料、香精、酱料",
+        "注意事项（谁要注意）": "",
+        "化学信息": "",
+        "依据": ""
+      },
+      "cleaned": {
+        "id": 205,
+        "name": "辛烯基琥珀酸淀粉钠",
+        "entity_type": "additive",
+        "category": "食品添加剂",
+        "role": "增稠剂",
+        "what": "能包住油滴的变性淀粉，常用来做乳化香精。",
+        "uses": "饮料、香精、酱料",
+        "aliases": []
+      },
+      "review": {
+        "status": "ai_reviewed_identity_and_common_uses",
+        "changes": [],
+        "excluded_lookup_aliases": {},
+        "caution_display": "withheld_no_source_column",
+        "evidence_status": "not_provided"
+      }
+    },
+    {
+      "row": 207,
+      "name": "泡打粉",
+      "original": {
+        "序号": "206",
+        "配料名称": "泡打粉",
+        "别名/规范名": "发粉",
+        "分类": "食品添加剂",
+        "功能类别": "膨松剂",
+        "通俗解释": "小苏打加酸性成分的复配膨松剂。",
+        "常见用途（哪些食品里常见）": "蛋糕、饼干、油条",
+        "注意事项（谁要注意）": "",
+        "化学信息": "",
+        "依据": ""
+      },
+      "cleaned": {
+        "id": 206,
+        "name": "泡打粉",
+        "entity_type": "additive",
+        "category": "食品添加剂",
+        "role": "膨松剂",
+        "what": "小苏打加酸性成分的复配膨松剂。",
+        "uses": "蛋糕、饼干、油条",
+        "aliases": [
+          "发粉"
+        ]
+      },
+      "review": {
+        "status": "ai_reviewed_identity_and_common_uses",
+        "changes": [],
+        "excluded_lookup_aliases": {},
+        "caution_display": "withheld_no_source_column",
+        "evidence_status": "not_provided"
+      }
+    },
+    {
+      "row": 208,
+      "name": "菊粉",
+      "original": {
+        "序号": "207",
+        "配料名称": "菊粉",
+        "别名/规范名": "",
+        "分类": "食品添加剂",
+        "功能类别": "增稠剂",
+        "通俗解释": "菊苣提取的水溶性膳食纤维。",
+        "常见用途（哪些食品里常见）": "乳制品、烘焙、代糖",
+        "注意事项（谁要注意）": "",
+        "化学信息": "",
+        "依据": ""
+      },
+      "cleaned": {
+        "id": 207,
+        "name": "菊粉",
+        "entity_type": "additive",
+        "category": "食品添加剂",
+        "role": "增稠剂",
+        "what": "菊苣提取的水溶性膳食纤维。",
+        "uses": "乳制品、烘焙、代糖",
+        "aliases": []
+      },
+      "review": {
+        "status": "ai_reviewed_identity_and_common_uses",
+        "changes": [],
+        "excluded_lookup_aliases": {},
+        "caution_display": "withheld_no_source_column",
+        "evidence_status": "not_provided"
+      }
+    },
+    {
+      "row": 209,
+      "name": "魔芋粉",
+      "original": {
+        "序号": "208",
+        "配料名称": "魔芋粉",
+        "别名/规范名": "魔芋精粉/魔芋胶",
+        "分类": "食品添加剂",
+        "功能类别": "增稠剂",
+        "通俗解释": "魔芋提取的葡甘露聚糖，吸水后成胶。",
+        "常见用途（哪些食品里常见）": "魔芋制品、粉丝、果冻",
+        "注意事项（谁要注意）": "",
+        "化学信息": "",
+        "依据": ""
+      },
+      "cleaned": {
+        "id": 208,
+        "name": "魔芋粉",
+        "entity_type": "additive",
+        "category": "食品添加剂",
+        "role": "增稠剂",
+        "what": "魔芋提取的葡甘露聚糖，吸水后成胶。",
+        "uses": "魔芋制品、粉丝、果冻",
+        "aliases": [
+          "魔芋精粉",
+          "魔芋胶"
+        ]
+      },
+      "review": {
+        "status": "ai_reviewed_identity_and_common_uses",
+        "changes": [],
         "excluded_lookup_aliases": {},
         "caution_display": "withheld_no_source_column",
         "evidence_status": "not_provided"
