@@ -20,7 +20,8 @@ class TestIngredientExtraction(unittest.TestCase):
         )
         self.assertEqual(
             normalize_ingredients(text),
-            ["鸡蛋", "白砂糖", "小麦粉", "麦芽糖浆", "起酥油", "水", "精炼植物油", "山梨酸钾", "碳酸氢钠"],
+            ["鸡蛋", "白砂糖", "小麦粉", "麦芽糖浆", "起酥油", "水", "植物油", "山梨酸钾", "碳酸氢钠"],
+            # 208 条词条里「精炼植物油」是「植物油」的别名，归一到词条名「植物油」
         )
 
     def test_does_not_guess_short_words(self):
