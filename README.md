@@ -96,3 +96,8 @@ python scripts/file_timeline_check.py
 （`build_dataset.py` / `build_food_tree.py`，词表由 `scripts/validate_food_lexicon.py` 校验重建），
 内容与原文件逐表 sha 一致，构建命令与行数校验见上述记录文档。
 这些数据只被 `app/backend/kb.py` 只读引用；代码、界面、交互、AI 编排、抓取脚本均为赛期内从零重建。
+
+## 八、原创声明与 AI 使用说明
+
+提交材料第 ④ 项见 **[原创声明与AI使用说明.md](原创声明与AI使用说明.md)**：赛期内新增了什么、用了哪些模型与工具、数据来源与许可，末尾附可核验材料索引（开发日志 / 时间清单 / 技术说明）。本文为匿名版，不含队员姓名与学号。
+
